@@ -1,4 +1,4 @@
-package com.example.quran;
+package com.example.quran.Readers_name;
 
 import androidx.lifecycle.ViewModelProvider;
 
@@ -12,20 +12,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Readers_NameFragment extends Fragment {
+import com.example.quran.R;
+
+public class Readers_nameFragment extends Fragment {
 
     private ReadersNameViewModel mViewModel;
 
-    public static Readers_NameFragment newInstance() {
-        return new Readers_NameFragment();
+    public static Readers_nameFragment newInstance() {
+        return new Readers_nameFragment();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        mViewModel = new ViewModelProvider(this).get(ReadersNameViewModel.class);
 
-        View root=    inflater.inflate(R.layout.readers__name_fragment, container, false);
+            View root=inflater.inflate(R.layout.readers_name_fragment, container, false);
+            mViewModel = new ViewModelProvider(this).get(ReadersNameViewModel.class);
 
 
         return root;
