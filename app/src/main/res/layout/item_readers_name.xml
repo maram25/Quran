@@ -9,14 +9,13 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="@dimen/_65ssp"
-        android:layout_height="@dimen/_65ssp"
+        android:layout_width="@dimen/_50ssp"
+        android:layout_height="@dimen/_50ssp"
         android:layout_margin="@dimen/_10ssp"
         app:cardCornerRadius="@dimen/_10ssp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
         <ImageView
             android:id="@+id/readerImage"
             android:layout_width="match_parent"
