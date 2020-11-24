@@ -7,7 +7,6 @@
     android:background="@color/Beige"
     tools:context=".Readers_name.Readers_nameFragment">
 
-
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
@@ -21,14 +20,11 @@
         android:id="@+id/readers_recycle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_10ssp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="@dimen/_20ssp"
+        android:layout_marginBottom="@dimen/_20ssp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
 >
-
     </androidx.recyclerview.widget.RecyclerView>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout >
