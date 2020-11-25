@@ -16,10 +16,8 @@ public class ReadersNameViewModel extends ViewModel {
         List<String>names_ar=new ArrayList<>();
         names_ar.add("المنشاوي ");
         names_ar.add("المنشاوي ");
-        names_ar.add("المنشاوي ");
-        names_ar.add("المنشاوي ");
         names_ar.add("مشاري راشيد ");
-        names_ar.add("مشاري راشيد ");
+        names_ar.add("عبد الرحمن السديسي ");
         names_ar.add("عبد الرحمن السديسي ");
         for (int i=0;i<names_ar.size();i++){
             ReadersNameModel readersNameModels=new ReadersNameModel();
@@ -31,4 +29,6 @@ public class ReadersNameViewModel extends ViewModel {
         }
 
         NamesReader.setValue(readersNameModel);
-    }}
+    }
+
+}

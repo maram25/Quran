@@ -28,6 +28,7 @@ public class Readers_nameFragment extends Fragment {
     public static Readers_nameFragment newInstance() {
         return new Readers_nameFragment();
     }
+    Readers_nameFragment readers_nameFragment =this;
     Context context;
     RecyclerView ReadersName;
 
@@ -47,7 +48,7 @@ public class Readers_nameFragment extends Fragment {
                @Override
                public void onChanged(List<ReadersNameModel> readersNameModels) {
 
-                   final Readers_nameAdapter adapter= new Readers_nameAdapter(context,readersNameModels);
+                   final Readers_nameAdapter adapter= new Readers_nameAdapter(readers_nameFragment,context,readersNameModels);
                    ReadersName.setLayoutManager( new GridLayoutManager(getContext(),1));
                    ReadersName.setAdapter(adapter);
                }

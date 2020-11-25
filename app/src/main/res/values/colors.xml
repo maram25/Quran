@@ -3,6 +3,7 @@
 
     <color name="green">#06651C</color>
     <color name="Beige">#DDC591</color>
+    <color name="Beige_Dark">#d9b786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

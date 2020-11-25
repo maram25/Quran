@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/Beige"
+    android:id="@+id/item_name"
+
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
@@ -30,7 +32,7 @@
         android:layout_marginTop="@dimen/_20ssp"
         android:layout_marginRight="@dimen/_5ssp"
         android:text="مشاري راشد"
-        android:textAlignment="textStart"
+        android:layout_gravity="start"
         android:textColor="@color/green"
         app:layout_constraintEnd_toStartOf="@+id/cardView"
         app:layout_constraintTop_toTopOf="parent"
@@ -41,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Meshary Rashid"
-        android:textAlignment="textEnd"
+        android:layout_gravity="start"
         android:layout_marginBottom="@dimen/_20ssp"
         android:layout_marginRight="@dimen/_5ssp"
         android:textColor="@color/green"
