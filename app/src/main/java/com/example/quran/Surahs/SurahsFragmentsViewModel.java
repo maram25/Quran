@@ -1,16 +1,10 @@
-package com.example.quran.Surah;
-
+package com.example.quran.Surahs;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-
-import com.example.quran.Models.ReadersNameModel;
 import com.example.quran.Models.SurahModel;
-
 import java.util.ArrayList;
 import java.util.List;
-
-public class SurahViewModel extends ViewModel {
-
+public class SurahsFragmentsViewModel extends ViewModel {
     MutableLiveData<List<SurahModel>> NamesSurahr=new MutableLiveData<>();
     public void GetSurahName() {
         List<SurahModel>surahModel=new ArrayList<>();
@@ -26,5 +20,4 @@ public class SurahViewModel extends ViewModel {
             surahModel.add(surahNameModels);
         }
         NamesSurahr.setValue(surahModel);
-    }
-}
+    }}

@@ -1,35 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/Beige"
-    tools:context=".Surah.SurahFragment">
+    android:id="@+id/SurahFragment"
+
+    tools:context=".Surahs.SurahsFragments">
 
     <LinearLayout
         android:id="@+id/all_surah"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:gravity="center"
-        android:layout_marginBottom="@dimen/_10ssp"
-        android:layout_marginTop="@dimen/_10ssp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="عرض السور"
             android:textColor="@color/green"
-            android:textSize="@dimen/_15ssp">
-        </TextView>
+            android:textSize="@dimen/_15ssp"></TextView>
+
         <ImageView
             android:layout_width="@dimen/_20ssp"
             android:layout_height="@dimen/_20ssp"
-            android:src="@drawable/back_down">
-        </ImageView>
+            android:src="@drawable/back_down"></ImageView>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -42,7 +43,4 @@
         app:layout_constraintTop_toBottomOf="@+id/all_surah">
 
     </androidx.recyclerview.widget.RecyclerView>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout >
-
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.quran.Surah;
+package com.example.quran.Surahs;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -21,14 +21,15 @@ import com.example.quran.R;
 
 import java.util.List;
 
-public class SurahFragment extends Fragment {
+public class SurahsFragments extends Fragment {
 
-    private SurahViewModel mViewModel;
+    private SurahsFragmentsViewModel mViewModel;
+
     Context context;
     RecyclerView SurahName;
 
-    public static SurahFragment newInstance() {
-        return new SurahFragment();
+    public static SurahsFragments newInstance() {
+        return new SurahsFragments();
     }
 
     @Override
@@ -38,15 +39,13 @@ public class SurahFragment extends Fragment {
             container.removeAllViews();
         }
         context = getContext();
-        mViewModel = new ViewModelProvider(this).get(SurahViewModel.class);
-        View root=inflater.inflate(R.layout.surah_fragment, container, false);
+        View root=inflater.inflate(R.layout.surahs_fragments_fragment, container, false);
         SurahName=root.findViewById(R.id.surah_recycle);
         mViewModel.GetSurahName();
         mViewModel.NamesSurahr.observe(this, new Observer<List<SurahModel>>() {
             @Override
             public void onChanged(List<SurahModel> surahModels) {
-
-                final SurahAdapter adapter =new  SurahAdapter(context,surahModels);
+                final SurahsAdapter adapter =new  SurahsAdapter(context,surahModels);
                 SurahName.setLayoutManager(new GridLayoutManager(getContext(),1));
                 SurahName.setAdapter(adapter);
 
@@ -54,8 +53,15 @@ public class SurahFragment extends Fragment {
             }
         });
 
-        return  root;
+
+        return root;
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        mViewModel = new ViewModelProvider(this).get(SurahsFragmentsViewModel.class);
+        // TODO: Use the ViewModel
+    }
 
 }

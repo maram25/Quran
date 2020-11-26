@@ -15,8 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.quran.Models.ReadersNameModel;
 import com.example.quran.R;
 import com.bumptech.glide.Glide;
-import com.example.quran.Surah.SurahFragment;
-
+import com.example.quran.Reader.ReaderFragment;
+import com.example.quran.Surahs.SurahsFragments;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ public class Readers_nameAdapter extends RecyclerView.Adapter<Readers_nameAdapte
     Class fragmentClass;
          List<ReadersNameModel> Names=new ArrayList<>();
         Context context;
-        //            this.context=context;
+        //  this.context=context;
         public  Readers_nameAdapter(Readers_nameFragment readers_nameFragment,Context context, List<ReadersNameModel> list){
             this.Names=list;
              this.readers_nameFragment=readers_nameFragment;
@@ -56,7 +56,8 @@ public class Readers_nameAdapter extends RecyclerView.Adapter<Readers_nameAdapte
             @Override
             public void onClick(View v) {
              //   Utils.trip_id = offersModelList.trips.get(position).getId();
-                fragmentClass= SurahFragment.class;
+               fragmentClass= SurahsFragments.class;
+              //  fragmentClass= ReaderFragment.class;
                 try {
                     fragment = (Fragment) fragmentClass.newInstance();
                 } catch (Exception e) {
