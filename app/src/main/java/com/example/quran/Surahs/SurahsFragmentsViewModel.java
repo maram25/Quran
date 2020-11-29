@@ -20,4 +20,5 @@ public class SurahsFragmentsViewModel extends ViewModel {
             surahModel.add(surahNameModels);
         }
         NamesSurahr.setValue(surahModel);
-    }}
+    }
+}

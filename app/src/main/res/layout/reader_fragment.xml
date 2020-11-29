@@ -93,26 +93,22 @@
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
-
-
     <SeekBar
         android:id="@+id/sBar"
-        android:layout_width="404dp"
-        android:layout_height="12dp"
-        android:layout_margin="@dimen/_10ssp"
+        android:layout_width="400dp"
+        android:layout_height="10dp"
+        android:layout_margin="@dimen/_15ssp"
         android:outlineAmbientShadowColor="@color/green"
-        android:outlineSpotShadowColor="@color/green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
-    <ImageView
+   <!-- <ImageView
         android:id="@+id/play_pause"
-        android:layout_width="@dimen/_30ssp"
-        android:layout_height="@dimen/_30ssp"
+        android:layout_width="@dimen/_35ssp"
+        android:layout_height="@dimen/_35ssp"
         android:layout_marginTop="@dimen/_20ssp"
         android:background="@drawable/play"
-        android:backgroundTint="@color/green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sBar" />
@@ -122,38 +118,73 @@
         android:layout_width="@dimen/_20ssp"
         android:layout_height="@dimen/_20ssp"
         android:layout_marginTop="@dimen/_20ssp"
-        android:src="@drawable/replay"
+        android:src="@drawable/next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/play_pause"
         app:layout_constraintTop_toBottomOf="@+id/sBar">
     </ImageView>
+
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="@dimen/_20ssp"
         android:layout_height="@dimen/_20ssp"
         android:layout_marginTop="@dimen/_20ssp"
-        android:src="@drawable/replay_2"
+        android:src="@drawable/following"
         app:layout_constraintEnd_toStartOf="@+id/play_pause"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sBar">
-    </ImageView>
+    </ImageView>-->
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@+id/play_pause"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_10ssp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+        app:layout_constraintTop_toBottomOf="@+id/sBar">
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/follwing"
             android:layout_width="@dimen/_20ssp"
             android:layout_height="@dimen/_20ssp"
-            android:layout_marginTop="@dimen/_20ssp"
-            android:src="@drawable/download"></ImageView>
+            android:layout_margin="@dimen/_20ssp"
+            android:src="@drawable/download">
+        </ImageView>
 
-      <!--  <TextView
+        <ImageView
+            android:id="@+id/downlode"
+            android:layout_width="@dimen/_20ssp"
+            android:layout_height="@dimen/_20ssp"
+            android:layout_margin="@dimen/_20ssp"
+            android:src="@drawable/following" />
+
+        <ImageView
+            android:id="@+id/play_pause"
+            android:layout_width="@dimen/_35ssp"
+            android:layout_height="@dimen/_35ssp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_10ssp"
+            android:layout_marginRight="@dimen/_10ssp"
+            android:background="@drawable/play" />
+
+        <ImageView
+            android:id="@+id/next"
+            android:layout_width="@dimen/_20ssp"
+            android:layout_height="@dimen/_20ssp"
+            android:layout_margin="@dimen/_20ssp"
+            android:src="@drawable/next" />
+
+        <ImageView
+            android:id="@+id/cimageView5"
+            android:layout_width="@dimen/_20ssp"
+            android:layout_height="@dimen/_20ssp"
+            android:layout_margin="@dimen/_20ssp"
+            android:src="@drawable/loop" />
+
+        <!--  <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -163,28 +194,20 @@
             android:textSize="@dimen/_10ssp"></TextView>-->
     </LinearLayout>
 
-    <LinearLayout
+  <!--  <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/play_pause"
         app:layout_constraintTop_toBottomOf="@+id/imageView4">
-
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="@dimen/_20ssp"
             android:layout_height="@dimen/_20ssp"
             android:layout_marginTop="@dimen/_20ssp"
-            android:src="@drawable/loop"></ImageView>
+            android:src="@drawable/loop">
 
-       <!-- <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_20ssp"
-            android:text="تكرار"
-            android:textColor="@color/green"
-            android:textSize="@dimen/_10ssp"></TextView>-->
-    </LinearLayout>
+    </LinearLayout> -->
 
 
     <LinearLayout

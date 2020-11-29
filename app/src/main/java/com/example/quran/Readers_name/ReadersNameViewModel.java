@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadersNameViewModel extends ViewModel {
-
     MutableLiveData<List<ReadersNameModel>> NamesReader=new MutableLiveData<>();
     public void GetReadersName() {
         List<ReadersNameModel>readersNameModel=new ArrayList<>();

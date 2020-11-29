@@ -2,6 +2,7 @@ package com.example.quran.Readers_name;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,15 +57,15 @@ public class Readers_nameAdapter extends RecyclerView.Adapter<Readers_nameAdapte
             @Override
             public void onClick(View v) {
              //   Utils.trip_id = offersModelList.trips.get(position).getId();
-               fragmentClass= SurahsFragments.class;
-              //  fragmentClass= ReaderFragment.class;
+              // fragmentClass= SurahsFragments.class;
+                fragmentClass= ReaderFragment.class;
                 try {
                     fragment = (Fragment) fragmentClass.newInstance();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }// Insert the fragment by replacing any existing fragment
+                } catch (Exception e) { e.printStackTrace(); }
                 FragmentManager fragmentManager = readers_nameFragment.getActivity().getSupportFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.Readers_nameFragment, fragment).commit();
+           //    Intent intent = new Intent(context,ReaderFragment.class);
+          //      context.startActivity(intent);
 
             }
         });

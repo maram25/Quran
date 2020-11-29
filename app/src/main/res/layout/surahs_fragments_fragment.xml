@@ -7,9 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/Beige"
     android:id="@+id/SurahFragment"
-
     tools:context=".Surahs.SurahsFragments">
-
     <LinearLayout
         android:id="@+id/all_surah"
         android:layout_width="match_parent"
@@ -25,12 +23,16 @@
             android:layout_height="wrap_content"
             android:text="عرض السور"
             android:textColor="@color/green"
-            android:textSize="@dimen/_15ssp"></TextView>
+            android:textSize="@dimen/_15ssp">
+
+        </TextView>
 
         <ImageView
             android:layout_width="@dimen/_20ssp"
             android:layout_height="@dimen/_20ssp"
-            android:src="@drawable/back_down"></ImageView>
+            android:src="@drawable/back_down">
+
+        </ImageView>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

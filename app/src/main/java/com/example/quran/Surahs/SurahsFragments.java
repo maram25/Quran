@@ -48,11 +48,8 @@ public class SurahsFragments extends Fragment {
                 final SurahsAdapter adapter =new  SurahsAdapter(context,surahModels);
                 SurahName.setLayoutManager(new GridLayoutManager(getContext(),1));
                 SurahName.setAdapter(adapter);
-
-
             }
         });
-
 
         return root;
     }
