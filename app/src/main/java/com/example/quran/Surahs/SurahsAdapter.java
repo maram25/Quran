@@ -27,8 +27,9 @@ import java.util.List;
         List<SurahModel> Surah=new ArrayList<>();
         Context context;
         // this.context=context;
-        public  SurahsAdapter(Context context, List<SurahModel> list){
+        public  SurahsAdapter( SurahsFragments surahsFragments,Context context, List<SurahModel> list){
             this.Surah=list;
+            this.surahsFragments=surahsFragments;
         }
         @NonNull
         @Override

@@ -1,5 +1,4 @@
 package com.example.quran.Readers_name;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -21,14 +20,13 @@ import com.example.quran.Surahs.SurahsFragments;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class Readers_nameAdapter extends RecyclerView.Adapter<Readers_nameAdapter.ViewHolder>{
     Readers_nameFragment readers_nameFragment;
     Fragment fragment = null;
     Class fragmentClass;
          List<ReadersNameModel> Names=new ArrayList<>();
         Context context;
-        //  this.context=context;
+         //this.context=context;
         public  Readers_nameAdapter(Readers_nameFragment readers_nameFragment,Context context, List<ReadersNameModel> list){
             this.Names=list;
              this.readers_nameFragment=readers_nameFragment;
@@ -48,7 +46,7 @@ public class Readers_nameAdapter extends RecyclerView.Adapter<Readers_nameAdapte
         try {
             Glide.with(context)
                     .asBitmap()
-                    .load("https://api.sadrad.app/uploads/cars/" + Names.get(position).getImage()+ "")
+                    .load("" + Names.get(position).getImage()+ "")
                     .into(holder.ReaderImage);
         }catch (NullPointerException e){};
 
@@ -57,8 +55,8 @@ public class Readers_nameAdapter extends RecyclerView.Adapter<Readers_nameAdapte
             @Override
             public void onClick(View v) {
              //   Utils.trip_id = offersModelList.trips.get(position).getId();
-              // fragmentClass= SurahsFragments.class;
-                fragmentClass= ReaderFragment.class;
+               fragmentClass= SurahsFragments.class;
+               // fragmentClass= ReaderFragment.class;
                 try {
                     fragment = (Fragment) fragmentClass.newInstance();
                 } catch (Exception e) { e.printStackTrace(); }

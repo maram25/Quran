@@ -27,6 +27,7 @@ public class SurahsFragments extends Fragment {
 
     Context context;
     RecyclerView SurahName;
+    SurahsFragments surahsFragments=this;
 
     public static SurahsFragments newInstance() {
         return new SurahsFragments();
@@ -40,25 +41,18 @@ public class SurahsFragments extends Fragment {
         }
         context = getContext();
         View root=inflater.inflate(R.layout.surahs_fragments_fragment, container, false);
+        mViewModel = new ViewModelProvider(this).get(SurahsFragmentsViewModel.class);
         SurahName=root.findViewById(R.id.surah_recycle);
         mViewModel.GetSurahName();
         mViewModel.NamesSurahr.observe(this, new Observer<List<SurahModel>>() {
             @Override
             public void onChanged(List<SurahModel> surahModels) {
-                final SurahsAdapter adapter =new  SurahsAdapter(context,surahModels);
+                final SurahsAdapter adapter =new  SurahsAdapter(surahsFragments,context,surahModels);
                 SurahName.setLayoutManager(new GridLayoutManager(getContext(),1));
                 SurahName.setAdapter(adapter);
             }
         });
-
         return root;
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(SurahsFragmentsViewModel.class);
-        // TODO: Use the ViewModel
     }
 
 }
