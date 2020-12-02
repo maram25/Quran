@@ -1,5 +1,6 @@
 package com.example.quran.Surahs;
 
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -22,9 +23,7 @@ import com.example.quran.R;
 import java.util.List;
 
 public class SurahsFragments extends Fragment {
-
     private SurahsFragmentsViewModel mViewModel;
-
     Context context;
     RecyclerView SurahName;
     SurahsFragments surahsFragments=this;
@@ -53,6 +52,14 @@ public class SurahsFragments extends Fragment {
             }
         });
         return root;
+    }
+
+    private void goToFragment(Fragment fragment, boolean addToBackStack) {
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        if (addToBackStack) {
+            transaction.addToBackStack("");
+        }
+        transaction.add(R.id.container, fragment).commit();
     }
 
 }

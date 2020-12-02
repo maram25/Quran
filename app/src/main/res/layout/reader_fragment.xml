@@ -9,31 +9,35 @@
     android:id="@+id/readerFragment"
     tools:context=".Reader.ReaderFragment">
 
-    <TextView
+
+   <!--<TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="مشاري راشد"
+        android:fontFamily="@font/font_b"
         android:textColor="@color/green"
         android:textSize="@dimen/_20ssp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" /> -->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="170dp"
         android:layout_height="170dp"
         android:layout_margin="@dimen/_20ssp"
+        android:paddingTop="@dimen/_20ssp"
         app:cardCornerRadius="@dimen/_10ssp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name">
+        app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
             android:id="@+id/readerImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/profile"/>
+            android:src="@drawable/profile" />
     </androidx.cardview.widget.CardView>
 
     <LinearLayout
@@ -45,7 +49,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView">
 
-        <TextView
+      <!--  <TextView
             android:id="@+id/surah_name_ar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,15 +59,16 @@
             android:textColor="@color/green"
             android:textSize="@dimen/_20ssp"
             app:layout_constraintEnd_toStartOf="@+id/cardView"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" />-->
 
         <TextView
             android:id="@+id/surah_name_en"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
+            android:layout_marginTop="@dimen/_20ssp"
             android:layout_marginBottom="@dimen/_20ssp"
-            android:text="Al-Baqarah"
+            android:text="@string/AlBaqarah"
             android:textColor="@color/green"
             android:textSize="@dimen/_16ssp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -76,6 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_15ssp"
         android:text="02.54"
+        android:fontFamily="@font/font_r"
         android:textColor="@color/green"
         android:textSize="@dimen/_11ssp"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
@@ -88,6 +94,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/_15ssp"
         android:text="45.66"
+        android:fontFamily="@font/font_r"
         android:textColor="@color/green"
         android:textSize="@dimen/_11ssp"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
@@ -147,11 +154,11 @@
         app:layout_constraintTop_toBottomOf="@+id/sBar">
 
         <ImageView
-            android:id="@+id/follwing"
-            android:layout_width="@dimen/_20ssp"
-            android:layout_height="@dimen/_20ssp"
+            android:id="@+id/play_list"
+            android:layout_width="@dimen/_22ssp"
+            android:layout_height="@dimen/_22ssp"
             android:layout_margin="@dimen/_20ssp"
-            android:src="@drawable/download">
+            android:src="@drawable/play_list">
         </ImageView>
 
         <ImageView
@@ -206,7 +213,6 @@
             android:layout_height="@dimen/_20ssp"
             android:layout_marginTop="@dimen/_20ssp"
             android:src="@drawable/loop">
-
     </LinearLayout> -->
 
 
@@ -224,7 +230,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="عرض السور"
+            android:text="@string/ShowSurah"
+            android:fontFamily="@font/font_b"
             android:textColor="@color/green"
             android:textSize="@dimen/_15ssp">
 

@@ -40,8 +40,8 @@ public class Readers_nameAdapter extends RecyclerView.Adapter<Readers_nameAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            holder.Name_ar.setText(Names.get(position).getName_ar()+"");
-            holder.Name_en.setText(Names.get(position).getName_en()+"");
+            holder.Name.setText(Names.get(position).getName_ar()+"");
+          //  holder.Name_en.setText(Names.get(position).getName_en()+"");
 
         try {
             Glide.with(context)
@@ -75,12 +75,12 @@ public class Readers_nameAdapter extends RecyclerView.Adapter<Readers_nameAdapte
         }
         public class ViewHolder extends RecyclerView.ViewHolder{
             ConstraintLayout ItemName;
-            TextView Name_en,Name_ar;
+            TextView Name;
             ImageView ReaderImage;
             public ViewHolder(View itemView) {
                 super(itemView);
-                Name_ar=itemView.findViewById(R.id.reader_name_ar);
-                Name_en=itemView.findViewById(R.id.reader_name_en);
+               // Name_ar=itemView.findViewById(R.id.reader_name_ar);
+                Name=itemView.findViewById(R.id.reader_name);
                 ReaderImage=itemView.findViewById(R.id.readerImage);
                 ItemName=itemView.findViewById(R.id.item_name);
             }

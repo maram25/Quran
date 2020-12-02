@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,8 +42,6 @@ public class ReaderFragment extends Fragment {
     MediaPlayer player = new MediaPlayer();
   //  ArrayList <MusicFiles> listion=new ArrayList<musicFile>();
     String Url;
-
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -53,8 +52,8 @@ public class ReaderFragment extends Fragment {
         }
         View root=inflater.inflate(R.layout.reader_fragment, container, false);
 
-        nameREader= root.findViewById(R.id.name);
-        surah_name_ar= root.findViewById(R.id.surah_name_ar);
+      //  nameREader= root.findViewById(R.id.name);
+     //   surah_name_ar= root.findViewById(R.id.surah_name_ar);
         surah_name_en= root.findViewById(R.id.surah_name_en);
         StartTime= root.findViewById(R.id.StartTime);
         EndTime= root.findViewById(R.id.EndTime);
@@ -68,25 +67,23 @@ public class ReaderFragment extends Fragment {
                fragment = new SurahsFragments();
                 replaceFragment(fragment); }
         });
-
         Play_Pause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 {
+
+                  //  MediaPlayer mp = MediaPlayer.create(this,R.raw.Nas);
+                  //  mp.start();
+
                     player.start();
                     // player.setDataSource("https://www.youtube.com/watch?v=hBql4kQzta");
-                    String audioUrl = "https://www.youtube.com/watch?v=hBql4kQzta";
-                    try {
-                        player.setDataSource(audioUrl);
-
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                   // String audioUrl = "https://www.youtube.com/watch?v=hBql4kQzta";
+                 //   try { player.setDataSource(audioUrl); } catch (IOException e) { e.printStackTrace(); }
 
              /*   if (!audioServiceBinder.audioPlayer.isPlaying()) {
                     audioServiceBinder.startAudio();
                     Play_Pause.setBackgroundResource(R.drawable.pause);
-                }else{
+                      }else{
                     audioServiceBinder.pauseAudio();
                     Play_Pause.setBackgroundResource(R.drawable.play);
                 }*/

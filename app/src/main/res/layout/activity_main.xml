@@ -7,6 +7,21 @@
     android:id="@+id/main"
     tools:context=".MainActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.Quran.AppBarOverlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/Theme.Quran.PopupOverlay"
+            app:titleTextColor="@color/green"/>
+    </com.google.android.material.appbar.AppBarLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

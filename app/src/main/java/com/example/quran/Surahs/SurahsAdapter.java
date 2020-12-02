@@ -29,8 +29,7 @@ import java.util.List;
         // this.context=context;
         public  SurahsAdapter( SurahsFragments surahsFragments,Context context, List<SurahModel> list){
             this.Surah=list;
-            this.surahsFragments=surahsFragments;
-        }
+            this.surahsFragments=surahsFragments; }
         @NonNull
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -40,8 +39,8 @@ import java.util.List;
         }
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            holder.Surah_name_ar.setText(Surah.get(position).getName_ar()+"");
-            holder.Surah_name_en.setText(Surah.get(position).getName_en()+"");
+            holder.Surah_name.setText(Surah.get(position).getName_ar()+"");
+          //  holder.Surah_name_en.setText(Surah.get(position).getName_en()+"");
             holder.NumberOfSurah.setText(Surah.get(position).getNumber()+"");
 
             holder.ItemSurah.setOnClickListener(new View.OnClickListener() {
@@ -67,15 +66,16 @@ import java.util.List;
         public class ViewHolder extends RecyclerView.ViewHolder{
             ConstraintLayout ItemSurah;
 
-            TextView Surah_name_en,Surah_name_ar,NumberOfSurah;
+            TextView Surah_name,Surah_name_ar,NumberOfSurah;
             public ViewHolder(View itemView) {
                 super(itemView);
-                Surah_name_ar=itemView.findViewById(R.id.surah_name_ar);
-                Surah_name_en=itemView.findViewById(R.id.surah_name_en);
+               // Surah_name_ar=itemView.findViewById(R.id.surah_name_ar);
+                Surah_name=itemView.findViewById(R.id.surah_name);
                 NumberOfSurah=itemView.findViewById(R.id.numberOfSurah);
                 ItemSurah=itemView.findViewById(R.id.item_saurahs);
             }
 
         }
+
 
     }

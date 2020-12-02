@@ -6,8 +6,28 @@
     android:layout_height="wrap_content"
     android:background="@color/Beige"
     android:id="@+id/item_saurahs"
-
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="@dimen/_25ssp"
+        android:layout_height="@dimen/_25ssp"
+        android:layout_margin="@dimen/_20ssp"
+        app:cardCornerRadius="@dimen/_5ssp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:id="@+id/numberOfSurah"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/green"
+            android:gravity="center"
+            android:text="5"
+            android:textSize="@dimen/_10ssp"
+            android:textColor="@color/Beige">
+        </TextView>
+    </androidx.cardview.widget.CardView>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -15,72 +35,64 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
         app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/play"
-            android:layout_width="@dimen/_20ssp"
-            android:layout_height="@dimen/_20ssp"
-            android:layout_margin="@dimen/_20ssp"
-            android:src="@drawable/play">
-        </ImageView>
-
-        <ImageView
-            android:id="@+id/downloud"
-            android:layout_width="@dimen/_20ssp"
-            android:layout_height="@dimen/_20ssp"
-            android:layout_margin="@dimen/_20ssp"
-            android:src="@drawable/download">
-
-        </ImageView>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_80ssp"
+            android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/surah_name_ar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginTop="@dimen/_20ssp"
-                android:text="البقره"
-                android:textColor="@color/green"
-                app:layout_constraintEnd_toStartOf="@+id/cardView"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/surah_name_en"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginBottom="@dimen/_20ssp"
-                android:text="Al-Baqarah"
-                android:textColor="@color/green"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/cardView"
-                app:layout_constraintTop_toBottomOf="@+id/reader_name_ar" />
+            <!-- <TextView
+                      android:id="@+id/surah_name_ar"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_gravity="end"
+                      android:layout_marginTop="@dimen/_20ssp"
+                      android:text="البقره"
+                      android:textColor="@color/green"
+                      app:layout_constraintEnd_toStartOf="@+id/cardView"
+                      app:layout_constraintTop_toTopOf="parent" />-->
         </LinearLayout>
 
     </LinearLayout>
 
     <TextView
-        android:id="@+id/numberOfSurah"
-        android:layout_width="@dimen/_20ssp"
-        android:layout_height="@dimen/_20ssp"
-        android:background="@drawable/circal"
-        android:gravity="center"
-        android:text="5"
-        android:textColor="@color/Beige"
+        android:id="@+id/surah_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_20ssp"
+        android:fontFamily="@font/font_r"
+        android:text="@string/AlBaqarah"
+        android:textColor="@color/green"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/play"
+        android:layout_width="@dimen/_25ssp"
+        android:layout_height="@dimen/_25ssp"
+        android:layout_margin="@dimen/_20ssp"
+        android:src="@drawable/play2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/downloud"
         app:layout_constraintTop_toTopOf="parent">
 
-    </TextView>
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/downloud"
+        android:layout_width="@dimen/_20ssp"
+        android:layout_height="@dimen/_20ssp"
+        android:layout_margin="@dimen/_20ssp"
+        android:src="@drawable/download_2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ImageView>
 
     <TextView
         android:id="@+id/textView"
