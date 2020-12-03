@@ -9,6 +9,31 @@
     android:id="@+id/readerFragment"
     tools:context=".Reader.ReaderFragment">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/Beige"
+        android:elevation="@dimen/_5ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <!--  <TextView
+            android:id="@+id/name_reader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="المنشاوي "
+            android:textColor="@color/green"
+            android:textSize="@dimen/_20ssp">
+        </TextView>-->
+        <ImageView
+            android:id="@+id/edit"
+            android:layout_width="@dimen/_40ssp"
+            android:layout_height="@dimen/_40ssp"
+            android:src="@drawable/edit">
+        </ImageView>
+    </androidx.appcompat.widget.Toolbar>
 
    <!--<TextView
         android:id="@+id/name"
@@ -31,7 +56,7 @@
         app:cardCornerRadius="@dimen/_10ssp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2">
 
         <ImageView
             android:id="@+id/readerImage"
@@ -70,6 +95,7 @@
             android:layout_marginBottom="@dimen/_20ssp"
             android:text="@string/AlBaqarah"
             android:textColor="@color/green"
+            android:fontFamily="@font/font_r"
             android:textSize="@dimen/_16ssp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/cardView"
@@ -79,30 +105,34 @@
         android:id="@+id/StartTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_15ssp"
+        android:layout_marginStart="@dimen/_20ssp"
         android:text="02.54"
         android:fontFamily="@font/font_r"
         android:textColor="@color/green"
         android:textSize="@dimen/_11ssp"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        android:layout_marginLeft="@dimen/_20ssp" />
 
     <TextView
         android:id="@+id/EndTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="@dimen/_15ssp"
+        android:layout_marginEnd="@dimen/_20ssp"
         android:text="45.66"
         android:fontFamily="@font/font_r"
         android:textColor="@color/green"
         android:textSize="@dimen/_11ssp"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        android:layout_marginRight="@dimen/_20ssp" />
     <SeekBar
         android:id="@+id/sBar"
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
+        android:layout_marginStart="@dimen/_20ssp"
+        android:layout_marginEnd="@dimen/_20ssp"
         android:layout_height="10dp"
         android:layout_margin="@dimen/_15ssp"
         android:outlineAmbientShadowColor="@color/green"
@@ -170,12 +200,12 @@
 
         <ImageView
             android:id="@+id/play_pause"
-            android:layout_width="@dimen/_35ssp"
-            android:layout_height="@dimen/_35ssp"
+            android:layout_width="@dimen/_30ssp"
+            android:layout_height="@dimen/_30ssp"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/_10ssp"
             android:layout_marginRight="@dimen/_10ssp"
-            android:background="@drawable/play" />
+            android:background="@drawable/play2" />
 
         <ImageView
             android:id="@+id/next"

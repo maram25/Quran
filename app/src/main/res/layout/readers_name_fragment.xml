@@ -1,26 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/Beige"
     android:id="@+id/Readers_nameFragment"
-
     tools:context=".Readers_name.Readers_nameFragment">
-    <ImageView
-        android:id="@+id/imageView2"
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_90ssp"
-        android:src="@drawable/main_icon"
+        android:layout_height="wrap_content"
+        android:background="@color/Beige"
+        android:elevation="@dimen/_5ssp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <androidx.recyclerview.widget.RecyclerView
+        app:layout_constraintTop_toTopOf="parent">
+        <!--  <TextView
+            android:id="@+id/name_reader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="المنشاوي "
+            android:textColor="@color/green"
+            android:textSize="@dimen/_20ssp">
+        </TextView>-->
+    <ImageView
+            android:id="@+id/edit"
+            android:layout_width="@dimen/_40ssp"
+            android:layout_height="@dimen/_40ssp"
+            android:src="@drawable/edit">
+        </ImageView>
+    </androidx.appcompat.widget.Toolbar>
+
+  <ImageView
+      android:id="@+id/imageView2"
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/_90ssp"
+      android:src="@drawable/main_icon"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+
+  <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/readers_recycle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/_50ssp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2">
     </androidx.recyclerview.widget.RecyclerView>
@@ -30,6 +57,6 @@
         android:background="@color/Beige"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/readers_recycle" />
+        app:layout_constraintTop_toBottomOf="@+id/readers_recycle"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout >

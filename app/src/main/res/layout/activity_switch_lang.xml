@@ -34,14 +34,14 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="vertical">
-                <androidx.appcompat.widget.AppCompatButton
+                <TextView
                     android:id="@+id/enLang"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Einglish"
-                    android:background="@color/white"
-                    android:textColor="@color/Beige"
-                    android:textSize="20dp" />
+                    android:gravity="center"
+                    android:textColor="@color/green"
+                    android:textSize="25dp" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -50,15 +50,15 @@
                 android:layout_marginEnd="@dimen/_5ssp"
                 android:layout_marginStart="@dimen/_5ssp"
                 android:orientation="vertical">
-                <androidx.appcompat.widget.AppCompatButton
+                <TextView
                     android:id="@+id/arLang"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="عربي"
                     android:layout_weight="1"
-                    android:background="@color/white"
-                    android:textColor="@color/Beige"
-                    android:textSize="20dp" />
+                    android:gravity="center"
+                    android:textColor="@color/green"
+                    android:textSize="25dp" />
             </LinearLayout>
         </LinearLayout>
 

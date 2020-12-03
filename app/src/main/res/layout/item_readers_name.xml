@@ -3,16 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="@dimen/_55ssp"
     android:background="@color/Beige"
     android:id="@+id/item_name"
-
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="@dimen/_50ssp"
-        android:layout_height="@dimen/_50ssp"
+        android:layout_width="@dimen/_40ssp"
+        android:layout_height="@dimen/_40ssp"
         android:layout_margin="@dimen/_10ssp"
         app:cardCornerRadius="@dimen/_10ssp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -45,6 +43,7 @@
         android:layout_gravity="start"
         android:layout_margin="@dimen/_10ssp"
         android:fontFamily="@font/font_r"
+        android:textSize="@dimen/_15ssp"
         android:text="Meshary Rashid"
         android:textColor="@color/green"
         app:layout_constraintBottom_toBottomOf="parent"

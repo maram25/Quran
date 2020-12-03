@@ -8,6 +8,33 @@
     android:background="@color/Beige"
     android:id="@+id/SurahFragment"
     tools:context=".Surahs.SurahsFragments">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/Beige"
+        android:elevation="@dimen/_5ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <!--  <TextView
+            android:id="@+id/name_reader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="المنشاوي "
+            android:textColor="@color/green"
+            android:textSize="@dimen/_20ssp">
+        </TextView>-->
+        <ImageView
+            android:id="@+id/edit"
+            android:layout_width="@dimen/_40ssp"
+            android:layout_height="@dimen/_40ssp"
+            android:src="@drawable/edit">
+        </ImageView>
+    </androidx.appcompat.widget.Toolbar>
+
     <LinearLayout
         android:id="@+id/all_surah"
         android:layout_width="match_parent"
@@ -24,7 +51,6 @@
             android:text="@string/ShowSurah"
             android:textColor="@color/green"
             android:textSize="@dimen/_15ssp">
-
         </TextView>
 
         <ImageView
@@ -39,7 +65,6 @@
         android:id="@+id/surah_recycle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/_50ssp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/all_surah">

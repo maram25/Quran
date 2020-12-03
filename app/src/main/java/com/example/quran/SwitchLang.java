@@ -22,11 +22,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.Locale;
 
 public class SwitchLang extends AppCompatActivity {
-    Button EnLang,ArLang;
+    TextView EnLang,ArLang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +36,10 @@ public class SwitchLang extends AppCompatActivity {
         EnLang=findViewById(R.id.enLang);
         ArLang=findViewById(R.id.arLang);
 
-    /*  SharedPreferences sp1 = getSharedPreferences("Login", MODE_PRIVATE);
+      SharedPreferences sp1 = getSharedPreferences("Login", MODE_PRIVATE);
         String Lang = sp1.getString("Lang", null);
         if (Lang != null) {SetAppLocale(Lang); }
-        Log.e("fcm", FirebaseInstanceId.getInstance().getToken()+" ll");*/
+       // Log.e("fcm", FirebaseInstanceId.getInstance().getToken()+" ll");
         EnLang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

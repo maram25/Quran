@@ -2,12 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-   <!-- our search option -->
    <item
        android:id="@+id/menuEdit"
        android:icon="@drawable/edit"
        android:orderInCategory="100"
-       android:title=""
-       app:actionViewClass="android.support.v7.widget.SearchView"
+       android:title="edit"
        app:showAsAction="always" />
 </menu>

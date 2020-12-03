@@ -10,6 +10,6 @@ import okhttp3.MultipartBody;
 
 public class Utils {
 
-    public static String Lang="en";
+    public static String Lang="ar";
 
 }
