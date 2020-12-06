@@ -39,8 +39,8 @@ public class Readers_nameFragment extends Fragment {
     }
     Readers_nameFragment readers_nameFragment =this;
     Context context;
-    Menu optionsMenu;
-ImageView edi;
+     Menu optionsMenu;
+     ImageView edi;
     RecyclerView ReadersName;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -49,13 +49,13 @@ ImageView edi;
         if (container != null) {
             container.removeAllViews();
         }
-        context = getContext();
+            context = getContext();
             View root=inflater.inflate(R.layout.readers_name_fragment, container, false);
             mViewModel = new ViewModelProvider(this).get(ReadersNameViewModel.class);
            ReadersName=root.findViewById(R.id.readers_recycle);
            mViewModel.GetReadersName();
            edi=root.findViewById(R.id.edit);
-           mViewModel.NamesReader.observe(this, new Observer<List<ReadersNameModel>>() {
+           mViewModel.NamesReader.observe(this, new Observer<List<ReadersNameModel>>()  {
                @Override
                public void onChanged(List<ReadersNameModel> readersNameModels) {
 
@@ -64,40 +64,24 @@ ImageView edi;
                    ReadersName.setAdapter(adapter);
                }
            });
-           edi.setOnClickListener(new View.OnClickListener() {
+           /*edi.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
                    Intent intent = new Intent(context,SwitchLang.class);
                    startActivity(intent);
-
                }
-           });
+           });*/
         return root;
     }
 
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
-
-    }
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.bar,menu);
-        menu.findItem(R.id.menuEdit).setVisible(true);
+       // menu.findItem(R.id.menuEdit).setVisible(true);
         optionsMenu = menu;
         super.onCreateOptionsMenu(menu, inflater);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menuEdit:
-                Intent intent = new Intent(context, SwitchLang.class);
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }

@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.quran.MainActivity;
 import com.example.quran.Models.SurahModel;
 import com.example.quran.R;
 
@@ -27,6 +28,7 @@ public class SurahsFragments extends Fragment {
     Context context;
     RecyclerView SurahName;
     SurahsFragments surahsFragments=this;
+    String  readername_ar="مشاري راشد";
 
     public static SurahsFragments newInstance() {
         return new SurahsFragments();
@@ -42,6 +44,8 @@ public class SurahsFragments extends Fragment {
         View root=inflater.inflate(R.layout.surahs_fragments_fragment, container, false);
         mViewModel = new ViewModelProvider(this).get(SurahsFragmentsViewModel.class);
         SurahName=root.findViewById(R.id.surah_recycle);
+        ((MainActivity) getActivity()).updateTextView(readername_ar);
+
         mViewModel.GetSurahName();
         mViewModel.NamesSurahr.observe(this, new Observer<List<SurahModel>>() {
             @Override

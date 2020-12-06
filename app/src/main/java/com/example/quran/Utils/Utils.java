@@ -11,5 +11,7 @@ import okhttp3.MultipartBody;
 public class Utils {
 
     public static String Lang="ar";
+    public   static boolean Switch=false;
+
 
 }

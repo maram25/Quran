@@ -22,6 +22,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.Locale;
@@ -35,9 +36,9 @@ public class SwitchLang extends AppCompatActivity {
         setContentView(R.layout.activity_switch_lang);
         EnLang=findViewById(R.id.enLang);
         ArLang=findViewById(R.id.arLang);
-
       SharedPreferences sp1 = getSharedPreferences("Login", MODE_PRIVATE);
         String Lang = sp1.getString("Lang", null);
+        if(!Utils.Switch)
         if (Lang != null) {SetAppLocale(Lang); }
        // Log.e("fcm", FirebaseInstanceId.getInstance().getToken()+" ll");
         EnLang.setOnClickListener(new View.OnClickListener() {
@@ -45,12 +46,11 @@ public class SwitchLang extends AppCompatActivity {
             public void onClick(View v) {
                 SetAppLocale("en");
                 EnLang.setBackgroundColor(Color.parseColor("#06651C"));
-               /* Fragment fragment = null;
-                fragment = new FragmentLogin();
-                replaceFragment(fragment);*/
 
             }
         });
+        Utils.Switch=true;
+
         ArLang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
