@@ -51,6 +51,9 @@ public class ReaderFragment extends Fragment {
     String readername_ar = "مشاري";
     public String audioFileUrl = "";
     public static MediaPlayer audioPlayer = null;
+
+    MediaPlayer mp = new MediaPlayer();
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -96,33 +99,23 @@ public class ReaderFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 {
-                    if (audioPlayer!=null)
-                    { stopAudio();
-                        audioFileUrl="https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3";
+                    if (!isPLAYING) {
+                        isPLAYING = true;
+                        mp = new MediaPlayer();
                         try {
-                            audioPlayer.setDataSource(audioFileUrl);
+                            mp.setDataSource("https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3");
+                            mp.prepare();
+                            mp.start();
                         } catch (IOException e) {
-                            e.printStackTrace();
-                        }catch (NullPointerException e){}
-//                        audioPlayer.scv  etOnPreparedListener((MediaPlayer.OnPreparedListener) get);
-                        audioPlayer.prepareAsync();
-                        startAudio();
-//                        viewHolder.my_stop_play.setImageResource(R.drawable.paus);
-//                        viewHolder.other_stop_play.setImageResource(R.drawable.paus);
-                    }else {
-//                        audioFileUrl=messages.get(i);
-                        startAudio();
-//                        viewHolder.my_stop_play.setImageResource(R.drawable.play);
-//                        viewHolder.other_stop_play.setImageResource(R.drawable.play);
+                            Log.e("LOG_TAG", "prepare() failed");
+                        }
+                    } else {
+                        isPLAYING = false;
+                        stopPlaying();
                     }
-             /*   if (!audioServiceBinder.audioPlayer.isPlaying()) {
-                    audioServiceBinder.startAudio();
-                    Play_Pause.setBackgroundResource(R.drawable.pause);
-                      }else{
-                    audioServiceBinder.pauseAudio();
-                    Play_Pause.setBackgroundResource(R.drawable.play);
-                }*/
+
                 }
+
             }
         });
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -143,7 +136,11 @@ public class ReaderFragment extends Fragment {
         });
         return root;
     }
-
+    Boolean isPLAYING = false;
+    private void stopPlaying() {
+        mp.release();
+        mp = null;
+    }
     public void replaceFragment(Fragment someFragment) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.readerFragment, someFragment);
