@@ -31,8 +31,11 @@ import android.widget.TextView;
 import com.example.quran.MainActivity;
 import com.example.quran.R;
 import com.example.quran.Surahs.SurahsFragments;
+import com.keenfin.audioview.AudioView;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReaderFragment extends Fragment {
     private ReaderViewModel mViewModel;
@@ -54,6 +57,8 @@ public class ReaderFragment extends Fragment {
 
     MediaPlayer mp = new MediaPlayer();
 
+    AudioView audioView;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -63,26 +68,20 @@ public class ReaderFragment extends Fragment {
             container.removeAllViews();
         }
         View root = inflater.inflate(R.layout.reader_fragment, container, false);
+        audioView = root.findViewById(R.id.AV);
+
         slide_up = AnimationUtils.loadAnimation(getContext(), R.anim.slide);
         butt = AnimationUtils.loadAnimation(getContext(), R.anim.slide_down);
-        //  nameREader= root.findViewById(R.id.name);
-        //   surah_name_ar= root.findViewById(R.id.surah_name_ar);
-        surah_name_en = root.findViewById(R.id.surah_name_en);
-        StartTime = root.findViewById(R.id.StartTime);
-        EndTime = root.findViewById(R.id.EndTime);
         all_surah = root.findViewById(R.id.all_surah);
-        Play_Pause = root.findViewById(R.id.play_pause);
-        seekBar = root.findViewById(R.id.sBar);
+
         ((MainActivity) getActivity()).updateTextView(readername_ar);
-        initAudioPlayer();
-//        audioPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-//            @Override
-//            public void onCompletion(MediaPlayer mp) {
-//              my_stop_play.setImageResource(R.drawable.play);
-////                other_stop_play.setImageResource(R.drawable.play);
-//
-//            }
-//        });
+        List<String> Audios = new ArrayList<>();
+
+        Audios.add("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
+        Audios.add("https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3");
+        Audios.add("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3");
+
+        audioView.setDataSource(Audios);
         all_surah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,112 +93,18 @@ public class ReaderFragment extends Fragment {
                 all_surah.startAnimation(butt);
             }
         });
-        //   all_surah.startAnimation(slide_up);
-        Play_Pause.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                {
-                    if (!isPLAYING) {
-                        isPLAYING = true;
-                        mp = new MediaPlayer();
-                        try {
-                            mp.setDataSource("https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3");
-                            mp.prepare();
-                            mp.start();
-                        } catch (IOException e) {
-                            Log.e("LOG_TAG", "prepare() failed");
-                        }
-                    } else {
-                        isPLAYING = false;
-                        stopPlaying();
-                    }
 
-                }
-
-            }
-        });
-        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
         return root;
     }
-    Boolean isPLAYING = false;
-    private void stopPlaying() {
-        mp.release();
-        mp = null;
-    }
+
     public void replaceFragment(Fragment someFragment) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.readerFragment, someFragment);
         transaction.addToBackStack("");
         transaction.commit();
     }
-    public void onPrepared(MediaPlayer player) {
-        player.start();
-    }
-    public void startAudio()
-    {
-        initAudioPlayer();
-        if(audioPlayer!=null) {
-            audioPlayer.start();
-        }
-    }
-    public boolean status=false;
-    public void stopAudio()
-    {
-        if(audioPlayer!=null) {
-            audioPlayer.stop();
-            destroyAudioPlayer();
-            status=false;
-        }
-    }
-
-    private void destroyAudioPlayer()
-    {
-        status=false;
-        if(audioPlayer!=null)
-        {
-            if(audioPlayer.isPlaying())
-            {
-                audioPlayer.stop();
-            }
-            audioPlayer.release();
-            audioPlayer = null;
-        }
-    }
-
-    public void initAudioPlayer()
-    {
-        try {
-            if (audioPlayer == null) {
-                audioPlayer = new MediaPlayer();
-                if (!TextUtils.isEmpty(audioFileUrl)) {
-                    audioPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-                    audioPlayer.setDataSource(audioFileUrl);
-                    audioPlayer.prepare();
-
-                }
 
 
 
-            }
 
-        }catch(IOException ex)
-        {
-            ex.printStackTrace();
-        }
-    }
 }
