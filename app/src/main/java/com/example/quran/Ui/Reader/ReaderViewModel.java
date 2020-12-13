@@ -1,4 +1,4 @@
-package com.example.quran.Reader;
+package com.example.quran.Ui.Reader;
 
 import androidx.lifecycle.ViewModel;
 

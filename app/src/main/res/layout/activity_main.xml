@@ -24,7 +24,6 @@
             android:layout_marginStart="@dimen/_20ssp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="@dimen/_10ssp"
-            android:text="@string/Meshar_Rashid"
             android:textColor="@color/green"
             android:textSize="@dimen/_15ssp">
 

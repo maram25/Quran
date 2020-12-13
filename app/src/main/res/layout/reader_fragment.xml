@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/Beige"
     android:id="@+id/readerFragment"
-    tools:context=".Reader.ReaderFragment">
+    tools:context=".Ui.Reader.PlayerFragment">
 
    <!--<TextView
         android:id="@+id/name"
@@ -45,6 +45,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
+        app:customLayout="@layout/custom_audio_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView"

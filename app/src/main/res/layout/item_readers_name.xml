@@ -12,6 +12,7 @@
         android:layout_width="@dimen/_40ssp"
         android:layout_height="@dimen/_40ssp"
         android:layout_margin="@dimen/_10ssp"
+        android:visibility="gone"
         app:cardCornerRadius="@dimen/_10ssp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,6 +20,7 @@
 
         <ImageView
             android:id="@+id/readerImage"
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/profile" />

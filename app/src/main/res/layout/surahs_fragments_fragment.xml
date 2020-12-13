@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/Beige"
     android:id="@+id/SurahFragment"
-    tools:context=".Surahs.SurahsFragments">
+    tools:context=".Ui.Surahs.SurahsFragments">
 
     <LinearLayout
         android:id="@+id/all_surah"

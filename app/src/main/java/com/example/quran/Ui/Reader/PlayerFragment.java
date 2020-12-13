@@ -1,68 +1,48 @@
-package com.example.quran.Reader;
+package com.example.quran.Ui.Reader;
 
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.os.IBinder;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.SeekBar;
-import android.widget.TextView;
 
 import com.example.quran.MainActivity;
 import com.example.quran.R;
-import com.example.quran.Surahs.SurahsFragments;
+import com.example.quran.Ui.Surahs.SurahsFragments;
+import com.example.quran.Utils.Utils;
 import com.keenfin.audioview.AudioView;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReaderFragment extends Fragment {
+public class PlayerFragment extends Fragment {
     private ReaderViewModel mViewModel;
-    public static ReaderFragment newInstance() {
-        return new ReaderFragment();
+    public static PlayerFragment newInstance() {
+        return new PlayerFragment();
     }
 
-    TextView nameREader, surah_name_ar, surah_name_en, StartTime, EndTime;
     LinearLayout all_surah;
-    ImageView Play_Pause;
-    SeekBar seekBar;
     Animation slide_up, butt;
-    MediaPlayer player = new MediaPlayer();
-    //  ArrayList <MusicFiles> listion=new ArrayList<musicFile>();
-    String Url;
     String readername_ar = "مشاري";
-    public String audioFileUrl = "";
-    public static MediaPlayer audioPlayer = null;
 
-    MediaPlayer mp = new MediaPlayer();
 
     AudioView audioView;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-
+        if(!(Utils.position.get(Utils.position.size()-1).equals("Player")))
+            Utils.position.add("Player");
         mViewModel = new ViewModelProvider(this).get(ReaderViewModel.class);
         if (container != null) {
             container.removeAllViews();
@@ -77,11 +57,20 @@ public class ReaderFragment extends Fragment {
         ((MainActivity) getActivity()).updateTextView(readername_ar);
         List<String> Audios = new ArrayList<>();
 
-        Audios.add("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
-        Audios.add("https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3");
-        Audios.add("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3");
 
-        audioView.setDataSource(Audios);
+
+
+
+
+
+        Audios.add("https://server13.mp3quran.net/husr/112.mp3");
+        Audios.add("https://server12.mp3quran.net/maher/112.mp3");
+        Audios.add("https://server10.mp3quran.net/ajm/112.mp3");
+        Audios.add("https://server8.mp3quran.net/bna/112.mp3");
+        Audios.add("https://server8.mp3quran.net/bna/112.mp3");
+        Audios.add("https://server10.mp3quran.net/minsh/112.mp3");
+
+        audioView.setDataSource(Utils.Swar);
         all_surah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,7 +78,6 @@ public class ReaderFragment extends Fragment {
                 fragment = new SurahsFragments();
                 replaceFragment(fragment);
 
-                // all_surah.startAnimation(slide_up);
                 all_surah.startAnimation(butt);
             }
         });

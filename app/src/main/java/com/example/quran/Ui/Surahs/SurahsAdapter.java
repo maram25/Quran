@@ -1,4 +1,4 @@
-package com.example.quran.Surahs;
+package com.example.quran.Ui.Surahs;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,24 +12,30 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.quran.Models.SurahModel;
 import com.example.quran.R;
-import com.example.quran.Reader.ReaderFragment;
-import com.example.quran.Readers_name.Readers_nameFragment;
+import com.example.quran.Ui.Reader.PlayerFragment;
+import com.example.quran.Utils.Utils;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-    public class SurahsAdapter  extends RecyclerView.Adapter<SurahsAdapter.ViewHolder>{
+public class SurahsAdapter  extends RecyclerView.Adapter<SurahsAdapter.ViewHolder>{
         SurahsFragments surahsFragments;
         Fragment fragment = null;
         Class fragmentClass;
-        List<SurahModel> Surah=new ArrayList<>();
+        List<String> Surah=new ArrayList<>();
         Context context;
-        // this.context=context;
-        public  SurahsAdapter( SurahsFragments surahsFragments,Context context, List<SurahModel> list){
+        public  SurahsAdapter( SurahsFragments surahsFragments,Context context, List<String> list){
+            this.context = context;
             this.Surah=list;
-            this.surahsFragments=surahsFragments; }
+            this.surahsFragments=surahsFragments;
+        }
+
         @NonNull
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -37,17 +43,16 @@ import java.util.List;
             ViewHolder holder=new ViewHolder (view);
             return holder;
         }
+
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            holder.Surah_name.setText(Surah.get(position).getName_ar()+"");
-          //  holder.Surah_name_en.setText(Surah.get(position).getName_en()+"");
-            holder.NumberOfSurah.setText(Surah.get(position).getNumber()+"");
+            holder.Surah_name.setText(getSwarName(Utils.SwarId.get(position)));
+            holder.NumberOfSurah.setText(Utils.SwarId.get(position));
 
             holder.ItemSurah.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //   Utils.trip_id = offersModelList.trips.get(position).getId();
-                    fragmentClass= ReaderFragment.class;
+                    fragmentClass= PlayerFragment.class;
                     try {
                         fragment = (Fragment) fragmentClass.newInstance();
                     } catch (Exception e) {
@@ -58,24 +63,62 @@ import java.util.List;
                 }
             });
         }
-        @Override
 
+        @Override
         public int getItemCount() {
             return Surah.size();
         }
+
         public class ViewHolder extends RecyclerView.ViewHolder{
             ConstraintLayout ItemSurah;
 
             TextView Surah_name,Surah_name_ar,NumberOfSurah;
             public ViewHolder(View itemView) {
                 super(itemView);
-               // Surah_name_ar=itemView.findViewById(R.id.surah_name_ar);
                 Surah_name=itemView.findViewById(R.id.surah_name);
                 NumberOfSurah=itemView.findViewById(R.id.numberOfSurah);
                 ItemSurah=itemView.findViewById(R.id.item_saurahs);
             }
 
         }
+
+        public  String getSwarName(String Swarid){
+            String SwarName;
+            try {
+                JSONArray jArray = new JSONArray(readJSONFromAsset());
+                for (int i = 0; i < jArray.length(); ++i) {
+                    String id = jArray.getJSONObject(i).getString("id");
+                    if (id.contains(Swarid)){
+                        if (Utils.Lang.equals("ar"))
+                            SwarName = jArray.getJSONObject(i).getString("name");
+                        else
+                             SwarName = jArray.getJSONObject(i).getString("name_en");
+
+                        return  SwarName;
+                    }
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return  "0";
+        }
+
+        public String readJSONFromAsset() {
+            String json = null;
+            try {
+                InputStream is = context.getAssets().open("swarArabic.json");
+                int size = is.available();
+                byte[] buffer = new byte[size];
+                is.read(buffer);
+                is.close();
+                json = new String(buffer, "UTF-8");
+            } catch (IOException ex) {
+                ex.printStackTrace();
+                return null;
+            }
+            return json;
+        }
+
 
 
     }

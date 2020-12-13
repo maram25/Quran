@@ -9,8 +9,12 @@ import java.util.List;
 import okhttp3.MultipartBody;
 
 public class Utils {
+    public static List<String> position=new ArrayList<>();
 
     public static String Lang="ar";
+    public static List<String> Swar;
+    public static List<String> SwarId;
+    public static String ReaderName = "";
     public   static boolean Switch=false;
 
 

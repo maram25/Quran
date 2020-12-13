@@ -1,40 +1,58 @@
 package com.example.quran.Models;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+
 public class ReadersNameModel {
-    private int Id;
-    private String Name_en;
-    private String Image;
-    private String Name_ar;
 
-    public int getId() {
-        return Id;
-    }
+    @SerializedName("reciters")
+    public List<Data> data;
 
-    public void setId(int id) {
-        Id = id;
-    }
+    public class Data{
+        @SerializedName("count")
+        private String Count;
+        @SerializedName("id")
+        private String Id;
+        @SerializedName("letter")
+        private String Letter;
+        @SerializedName("name")
+        private String Name;
+        @SerializedName("rewaya")
+        private String Rewaya;
+        @SerializedName("Server")
+        private String Server;
 
-    public String getName_en() {
-        return Name_en;
-    }
+        public String getCount() {
+            return Count;
+        }
 
-    public void setName_en(String name_en) {
-        Name_en = name_en;
-    }
+        public String getId() {
+            return Id;
+        }
 
-    public String getImage() {
-        return Image;
-    }
+        public String getLetter() {
+            return Letter;
+        }
 
-    public void setImage(String image) {
-        Image = image;
-    }
+        public String getName() {
+            return Name;
+        }
 
-    public String getName_ar() {
-        return Name_ar;
-    }
+        public String getRewaya() {
+            return Rewaya;
+        }
 
-    public void setName_ar(String name_ar) {
-        Name_ar = name_ar;
+        public String getServer() {
+            return Server;
+        }
+
+        public String getSuras() {
+            return Suras;
+        }
+
+        @SerializedName("suras")
+        private String Suras;
+
     }
 }

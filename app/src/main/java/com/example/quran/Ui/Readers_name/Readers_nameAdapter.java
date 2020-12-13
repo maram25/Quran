@@ -1,7 +1,5 @@
-package com.example.quran.Readers_name;
-import android.app.Activity;
+package com.example.quran.Ui.Readers_name;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,20 +12,22 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.quran.Models.ReadersNameModel;
 import com.example.quran.R;
-import com.bumptech.glide.Glide;
-import com.example.quran.Reader.ReaderFragment;
-import com.example.quran.Surahs.SurahsFragments;
+
+import com.example.quran.Ui.Surahs.SurahsFragments;
+import com.example.quran.Utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
+
+
 public class Readers_nameAdapter extends RecyclerView.Adapter<Readers_nameAdapter.ViewHolder>{
     Readers_nameFragment readers_nameFragment;
     Fragment fragment = null;
     Class fragmentClass;
-         List<ReadersNameModel> Names=new ArrayList<>();
+         List<ReadersNameModel.Data> Names=new ArrayList<>();
         Context context;
          //this.context=context;
-        public  Readers_nameAdapter(Readers_nameFragment readers_nameFragment,Context context, List<ReadersNameModel> list){
+        public  Readers_nameAdapter(Readers_nameFragment readers_nameFragment,Context context, List<ReadersNameModel.Data> list){
             this.Names=list;
              this.readers_nameFragment=readers_nameFragment;
         }
@@ -40,36 +40,64 @@ public class Readers_nameAdapter extends RecyclerView.Adapter<Readers_nameAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            holder.Name.setText(Names.get(position).getName_ar()+"");
-          //  holder.Name_en.setText(Names.get(position).getName_en()+"");
+            holder.Name.setText(Names.get(position).getName()+"");
 
-        try {
-            Glide.with(context)
-                    .asBitmap()
-                    .load("" + Names.get(position).getImage()+ "")
-                    .into(holder.ReaderImage);
-        }catch (NullPointerException e){};
 
 
         holder.ItemName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             //   Utils.trip_id = offersModelList.trips.get(position).getId();
+                fillSwarArray(Names.get(position).getSuras(),Names.get(position).getServer());
+                Utils.ReaderName = Names.get(position).getName();
+
                fragmentClass= SurahsFragments.class;
-               // fragmentClass= ReaderFragment.class;
                 try {
                     fragment = (Fragment) fragmentClass.newInstance();
                 } catch (Exception e) { e.printStackTrace(); }
                 FragmentManager fragmentManager = readers_nameFragment.getActivity().getSupportFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.Readers_nameFragment, fragment).commit();
-           //    Intent intent = new Intent(context,ReaderFragment.class);
-          //      context.startActivity(intent);
+
 
             }
         });
     }
 
-        @Override
+    public void fillSwarArray(String Swars, String Server){
+
+        List<String>Swar = new ArrayList<>();
+        List<String>SwarId = new ArrayList<>();
+
+        String str = Swars;
+        String[] arrOfStr = str.split(",");
+        String SwareUrl="";
+        for(int i=0;i<arrOfStr.length;i++){
+            SwarId.add(arrOfStr[i].toString());
+
+            switch(arrOfStr[i].length()) {
+                case 1:
+                    SwareUrl = Server+"/00" + arrOfStr[i].toString() +".mp3";
+                    break;
+                case 2:
+                    SwareUrl = Server+"/0" + arrOfStr[i].toString() +".mp3";
+                    break;
+                case 3:
+                    SwareUrl = Server+"/" + arrOfStr[i].toString() +".mp3";
+                    break;
+            }
+
+
+
+
+            Swar.add(SwareUrl);
+
+        }
+
+        Utils.SwarId = SwarId;
+        Utils.Swar = Swar;
+    }
+
+
+    @Override
         public int getItemCount() {
             return Names.size();
         }
@@ -79,7 +107,6 @@ public class Readers_nameAdapter extends RecyclerView.Adapter<Readers_nameAdapte
             ImageView ReaderImage;
             public ViewHolder(View itemView) {
                 super(itemView);
-               // Name_ar=itemView.findViewById(R.id.reader_name_ar);
                 Name=itemView.findViewById(R.id.reader_name);
                 ReaderImage=itemView.findViewById(R.id.readerImage);
                 ItemName=itemView.findViewById(R.id.item_name);

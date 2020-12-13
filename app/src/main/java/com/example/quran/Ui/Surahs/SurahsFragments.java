@@ -1,6 +1,5 @@
-package com.example.quran.Surahs;
+package com.example.quran.Ui.Surahs;
 
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -18,52 +17,56 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.quran.MainActivity;
-import com.example.quran.Models.SurahModel;
 import com.example.quran.R;
+import com.example.quran.Utils.Utils;
 
 import java.util.List;
 
 public class SurahsFragments extends Fragment {
-    private SurahsFragmentsViewModel mViewModel;
-    Context context;
-    RecyclerView SurahName;
-    SurahsFragments surahsFragments=this;
-    String  readername_ar="مشاري راشد";
-
     public static SurahsFragments newInstance() {
         return new SurahsFragments();
     }
 
+    private SurahsFragmentsViewModel mViewModel;
+    Context context;
+    RecyclerView SurahName;
+    SurahsFragments surahsFragments=this;
+
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        if(!(Utils.position.get(Utils.position.size()-1).equals("c")))
+            Utils.position.add("surahs");
+        mViewModel = new ViewModelProvider(this).get(SurahsFragmentsViewModel.class);
+
         if (container != null) {
             container.removeAllViews();
         }
         context = getContext();
+
         View root=inflater.inflate(R.layout.surahs_fragments_fragment, container, false);
-        mViewModel = new ViewModelProvider(this).get(SurahsFragmentsViewModel.class);
         SurahName=root.findViewById(R.id.surah_recycle);
-        ((MainActivity) getActivity()).updateTextView(readername_ar);
+
+
+
+        ((MainActivity) getActivity()).updateTextView(Utils.ReaderName);
 
         mViewModel.GetSurahName();
-        mViewModel.NamesSurahr.observe(this, new Observer<List<SurahModel>>() {
+
+        mViewModel.NamesSurahr.observe(this, new Observer<List<String>>() {
             @Override
-            public void onChanged(List<SurahModel> surahModels) {
+            public void onChanged(List<String> surahModels) {
                 final SurahsAdapter adapter =new  SurahsAdapter(surahsFragments,context,surahModels);
                 SurahName.setLayoutManager(new GridLayoutManager(getContext(),1));
                 SurahName.setAdapter(adapter);
             }
         });
+
+
         return root;
     }
 
-    private void goToFragment(Fragment fragment, boolean addToBackStack) {
-        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-        if (addToBackStack) {
-            transaction.addToBackStack("");
-        }
-        transaction.add(R.id.container, fragment).commit();
-    }
+
 
 }
