@@ -11,27 +11,27 @@
 
   <ImageView
       android:id="@+id/imageView2"
-      android:layout_width="match_parent"
-      android:layout_height="@dimen/_90ssp"
+      android:layout_marginTop="@dimen/_10ssp"
+      android:layout_width="@dimen/_80ssp"
+      android:layout_height="@dimen/_80ssp"
       android:src="@drawable/main_icon"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
 
   <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/readers_recycle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+      android:id="@+id/readers_recycle"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
       android:paddingBottom="@dimen/_95ssp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2">
-    </androidx.recyclerview.widget.RecyclerView>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_30ssp"
-        android:background="@color/Beige"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/readers_recycle"/>
+      android:supportsRtl="true"
+      android:gravity="start"
+      android:layout_margin="@dimen/_5ssp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/imageView2"
+  >
+
+  </androidx.recyclerview.widget.RecyclerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout >

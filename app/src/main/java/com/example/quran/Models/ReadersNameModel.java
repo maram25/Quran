@@ -5,10 +5,8 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class ReadersNameModel {
-
     @SerializedName("reciters")
     public List<Data> data;
-
     public class Data{
         @SerializedName("count")
         private String Count;

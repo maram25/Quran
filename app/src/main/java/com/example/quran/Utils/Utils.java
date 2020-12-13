@@ -11,7 +11,7 @@ import okhttp3.MultipartBody;
 public class Utils {
     public static List<String> position=new ArrayList<>();
 
-    public static String Lang="ar";
+    public static String Lang="en";
     public static List<String> Swar;
     public static List<String> SwarId;
     public static String ReaderName = "";

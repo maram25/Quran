@@ -62,9 +62,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Fragment fragment = null;
-
-
-
             try {
                 if (Utils.position.get(Utils.position.size() - 2).equals("Readers")) {
 
@@ -76,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
 
                 } else if (Utils.position.get(Utils.position.size() - 2).equals("surahs")) {
                     fragmentClass = SurahsFragments.class;
-
 
                 }
             }catch (IndexOutOfBoundsException e){

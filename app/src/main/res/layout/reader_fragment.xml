@@ -9,18 +9,6 @@
     android:id="@+id/readerFragment"
     tools:context=".Ui.Reader.PlayerFragment">
 
-   <!--<TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="مشاري راشد"
-        android:fontFamily="@font/font_b"
-        android:textColor="@color/green"
-        android:textSize="@dimen/_20ssp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" /> -->
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="170dp"
@@ -40,19 +28,40 @@
     </androidx.cardview.widget.CardView>
 
 
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+        <TextView
+            android:id="@+id/surah_name_en"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="@dimen/_20ssp"
+            android:layout_marginBottom="@dimen/_20ssp"
+            android:text="@string/AlBaqarah"
+            android:textColor="@color/green"
+            android:fontFamily="@font/font_b"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cardView"
+            app:layout_constraintTop_toBottomOf="@+id/reader_name_ar" />
+    </LinearLayout>
     <com.keenfin.audioview.AudioView
         android:id="@+id/AV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         app:customLayout="@layout/custom_audio_layout"
+        app:primaryColor="@color/green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView"
-        >
-
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
     </com.keenfin.audioview.AudioView>
-
 
     <LinearLayout
         android:id="@+id/all_surah"
@@ -64,7 +73,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -72,9 +80,7 @@
             android:fontFamily="@font/font_b"
             android:textColor="@color/green"
             android:textSize="@dimen/_15ssp">
-
         </TextView>
-
         <ImageView
             android:layout_width="@dimen/_20ssp"
             android:layout_height="@dimen/_20ssp"

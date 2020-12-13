@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
@@ -21,10 +20,9 @@
             android:id="@+id/name_reader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_20ssp"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="@dimen/_10ssp"
             android:textColor="@color/green"
+            android:layout_centerHorizontal="true"
             android:textSize="@dimen/_15ssp">
 
         </TextView>

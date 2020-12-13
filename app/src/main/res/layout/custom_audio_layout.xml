@@ -4,14 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-
-
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:fontFamily="@font/font_r"
+        android:paddingBottom="@dimen/_10ssp"
         android:textColor="@color/green"
         android:textSize="@dimen/_12ssp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,8 +68,6 @@
         app:layout_constraintTop_toBottomOf="@+id/title"
         android:layout_marginRight="@dimen/_20ssp" />
 
-
-
     <LinearLayout
 
         android:layout_width="match_parent"
@@ -98,15 +95,14 @@
             android:src="@drawable/following" />
 
         <ImageButton
-
             android:id="@+id/play"
             android:layout_width="@dimen/_30ssp"
             android:layout_height="@dimen/_30ssp"
             android:layout_gravity="center"
+            android:backgroundTint="@color/green"
             android:layout_marginLeft="@dimen/_10ssp"
             android:layout_marginRight="@dimen/_10ssp"
             android:background="@drawable/play2"
-
             />
 
         <ImageView

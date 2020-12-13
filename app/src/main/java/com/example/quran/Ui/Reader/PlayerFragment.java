@@ -34,13 +34,11 @@ public class PlayerFragment extends Fragment {
     LinearLayout all_surah;
     Animation slide_up, butt;
     String readername_ar = "مشاري";
-
-
+    String readername_en = "Mishary Rashid";
     AudioView audioView;
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if(!(Utils.position.get(Utils.position.size()-1).equals("Player")))
             Utils.position.add("Player");
         mViewModel = new ViewModelProvider(this).get(ReaderViewModel.class);
@@ -53,16 +51,15 @@ public class PlayerFragment extends Fragment {
         slide_up = AnimationUtils.loadAnimation(getContext(), R.anim.slide);
         butt = AnimationUtils.loadAnimation(getContext(), R.anim.slide_down);
         all_surah = root.findViewById(R.id.all_surah);
+        if(Utils.Lang.equals("ar")){
+            ((MainActivity) getActivity()).updateTextView(readername_ar);
+        }
+        if(Utils.Lang.equals("en")){
+            ((MainActivity) getActivity()).updateTextView(readername_en);
+        }
 
-        ((MainActivity) getActivity()).updateTextView(readername_ar);
+
         List<String> Audios = new ArrayList<>();
-
-
-
-
-
-
-
         Audios.add("https://server13.mp3quran.net/husr/112.mp3");
         Audios.add("https://server12.mp3quran.net/maher/112.mp3");
         Audios.add("https://server10.mp3quran.net/ajm/112.mp3");
