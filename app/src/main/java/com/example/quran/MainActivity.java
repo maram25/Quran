@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         edit=findViewById(R.id.edit);
         nameReader=findViewById(R.id.name_reader);
-        nameReader.setText("test");
+        nameReader.setText("Quran");
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

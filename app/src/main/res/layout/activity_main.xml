@@ -30,8 +30,8 @@
         <ImageView
             android:id="@+id/edit"
             android:layout_marginTop="@dimen/_5ssp"
-            android:layout_width="@dimen/_35ssp"
-            android:layout_height="@dimen/_35ssp"
+            android:layout_width="@dimen/_30ssp"
+            android:layout_height="@dimen/_30ssp"
             android:layout_marginEnd="@dimen/_10ssp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"

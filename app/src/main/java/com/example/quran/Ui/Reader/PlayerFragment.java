@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.quran.MainActivity;
@@ -36,6 +37,7 @@ public class PlayerFragment extends Fragment {
     String readername_ar = "مشاري";
     String readername_en = "Mishary Rashid";
     AudioView audioView;
+    ImageView play,rewind,forward;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -51,13 +53,17 @@ public class PlayerFragment extends Fragment {
         slide_up = AnimationUtils.loadAnimation(getContext(), R.anim.slide);
         butt = AnimationUtils.loadAnimation(getContext(), R.anim.slide_down);
         all_surah = root.findViewById(R.id.all_surah);
+        play=root.findViewById(R.id.play);
+        rewind=root.findViewById(R.id.rewind);
+        forward=root.findViewById(R.id.forward);
         if(Utils.Lang.equals("ar")){
-            ((MainActivity) getActivity()).updateTextView(readername_ar);
+            ((MainActivity) getActivity()).updateTextView(Utils.ReaderName);
+            rewind.setImageResource(R.drawable.next);
+            forward.setImageResource(R.drawable.following);
         }
         if(Utils.Lang.equals("en")){
-            ((MainActivity) getActivity()).updateTextView(readername_en);
+            ((MainActivity) getActivity()).updateTextView(Utils.ReaderName);
         }
-
 
         List<String> Audios = new ArrayList<>();
         Audios.add("https://server13.mp3quran.net/husr/112.mp3");

@@ -30,6 +30,7 @@
         <ImageView
             android:layout_width="@dimen/_20ssp"
             android:layout_height="@dimen/_20ssp"
+            app:tint="@color/green"
             android:src="@drawable/back_down">
 
         </ImageView>
