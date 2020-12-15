@@ -20,7 +20,6 @@
 
         <ImageView
             android:id="@+id/readerImage"
-
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/profile" />
@@ -46,11 +45,12 @@
         android:layout_margin="@dimen/_10ssp"
         android:fontFamily="@font/font_r"
         android:textSize="@dimen/_15ssp"
-        android:text="Meshary Rashid"
+        android:text="@string/Meshar_Rashid"
         android:textColor="@color/green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/cardView"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <TextView
         android:layout_width="match_parent"

@@ -43,7 +43,7 @@ public class Readers_nameFragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//        if(!(Utils.position.get(Utils.position.size()-1).equals("Readers")))
+//       if(!(Utils.position.get(Utils.position.size()-1).equals("Readers")))
             Utils.position.add("Readers");
         if (container != null) {
             container.removeAllViews();

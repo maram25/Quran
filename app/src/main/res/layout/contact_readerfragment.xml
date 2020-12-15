@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/Beige"
-    android:id="@+id/readerFragment"
-    tools:context=".Ui.Reader.PlayerFragment">
-
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="170dp"
@@ -35,20 +32,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView">
 
-    <!--<TextView
-            android:id="@+id/surah_name_en"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginTop="@dimen/_20ssp"
-            android:layout_marginBottom="@dimen/_20ssp"
-            android:text="@string/AlBaqarah"
-            android:textColor="@color/green"
-            android:fontFamily="@font/font_b"
-            android:textSize="@dimen/_16ssp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cardView"
-            app:layout_constraintTop_toBottomOf="@+id/reader_name_ar" />-->
+        <!--<TextView
+                android:id="@+id/surah_name_en"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/_20ssp"
+                android:layout_marginBottom="@dimen/_20ssp"
+                android:text="@string/AlBaqarah"
+                android:textColor="@color/green"
+                android:fontFamily="@font/font_b"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/cardView"
+                app:layout_constraintTop_toBottomOf="@+id/reader_name_ar" />-->
     </LinearLayout>
     <com.keenfin.audioview.AudioView
         android:id="@+id/AV"
@@ -70,22 +67,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ShowSurah"
-            android:fontFamily="@font/font_b"
-            android:textColor="@color/green"
-            android:textSize="@dimen/_15ssp">
-        </TextView>
-        <ImageView
-            android:layout_width="@dimen/_20ssp"
-            android:layout_height="@dimen/_20ssp"
-            app:tint="@color/green"
-            android:src="@drawable/back_down">
-        </ImageView>
+        <!--    <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ShowSurah"
+                android:fontFamily="@font/font_b"
+                android:textColor="@color/green"
+                android:textSize="@dimen/_15ssp">
+            </TextView>
+            <ImageView
+                android:layout_width="@dimen/_20ssp"
+                android:layout_height="@dimen/_20ssp"
+                app:tint="@color/green"
+                android:src="@drawable/back_down">
+            </ImageView>-->
     </LinearLayout>
 
-
-</androidx.constraintlayout.widget.ConstraintLayout >
-
+</androidx.constraintlayout.widget.ConstraintLayout>

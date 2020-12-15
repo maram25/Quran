@@ -36,8 +36,10 @@ public class SurahsFragments extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        if(!(Utils.position.get(Utils.position.size()-1).equals("c")))
+      //  if(!(Utils.position.get(Utils.position.size()-1).equals("c"))) Utils.position.add("surahs");
+        if(!(Utils.position.get(Utils.position.size()-1).equals("surahs")))
             Utils.position.add("surahs");
+
         mViewModel = new ViewModelProvider(this).get(SurahsFragmentsViewModel.class);
 
         if (container != null) {

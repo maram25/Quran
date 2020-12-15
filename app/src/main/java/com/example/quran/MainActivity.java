@@ -81,16 +81,12 @@ public class MainActivity extends AppCompatActivity {
                 this.finish();
                 System.exit(0);
             }
-
             Log.e("back", "ms7t");
             Utils.position.remove(Utils.position.size() - 1);
-
             try {
-
                 Utils.position.remove(Utils.position.size() - 2);
 
             }catch (IndexOutOfBoundsException e){}
-
 
             try {
                 fragment = (Fragment) fragmentClass.newInstance();
@@ -98,7 +94,9 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }// Insert the fragment by replacing any existing fragment
             FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();
+            fragmentManager.beginTransaction().replace(R.id.main, fragment).commit();
         }
+
+
     }
 
