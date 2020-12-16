@@ -48,7 +48,6 @@ public class SurahsAdapter  extends RecyclerView.Adapter<SurahsAdapter.ViewHolde
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             holder.Surah_name.setText(getSwarName(Utils.SwarId.get(position)));
             holder.NumberOfSurah.setText(Utils.SwarId.get(position));
-
             holder.ItemSurah.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -68,10 +67,8 @@ public class SurahsAdapter  extends RecyclerView.Adapter<SurahsAdapter.ViewHolde
         public int getItemCount() {
             return Surah.size();
         }
-
         public class ViewHolder extends RecyclerView.ViewHolder{
             ConstraintLayout ItemSurah;
-
             TextView Surah_name,Surah_name_ar,NumberOfSurah;
             public ViewHolder(View itemView) {
                 super(itemView);
@@ -93,6 +90,9 @@ public class SurahsAdapter  extends RecyclerView.Adapter<SurahsAdapter.ViewHolde
                             SwarName = jArray.getJSONObject(i).getString("name");
                         else
                              SwarName = jArray.getJSONObject(i).getString("name_en");
+
+
+                        Utils.SurahName=SwarName;
 
                         return  SwarName;
                     }

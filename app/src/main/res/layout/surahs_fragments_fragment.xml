@@ -7,8 +7,9 @@
     android:layout_height="match_parent"
     android:background="@color/Beige"
     android:id="@+id/SurahFragment"
-    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
     app:behavior_peekHeight="70dp"
+    app:behavior_hideable="true"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
     tools:context=".Ui.Surahs.SurahsFragments">
     <LinearLayout
         android:id="@+id/all_surah"
@@ -33,7 +34,7 @@
             android:id="@+id/back_up"
             android:src="@drawable/back_down">
         </ImageView>
-    </LinearLayout>
+    </LinearLayout>-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/surah_recycle"
         android:layout_width="match_parent"

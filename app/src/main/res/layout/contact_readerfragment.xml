@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:background="@color/Beige"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="match_parent">
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="170dp"
@@ -23,30 +23,30 @@
             android:layout_height="match_parent"
             android:src="@drawable/profile" />
     </androidx.cardview.widget.CardView>
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView">
+    <!--  <LinearLayout
+         android:id="@+id/linearLayout2"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:orientation="vertical"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toBottomOf="@+id/cardView">
 
-        <!--<TextView
-                android:id="@+id/surah_name_en"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginTop="@dimen/_20ssp"
-                android:layout_marginBottom="@dimen/_20ssp"
-                android:text="@string/AlBaqarah"
-                android:textColor="@color/green"
-                android:fontFamily="@font/font_b"
-                android:textSize="@dimen/_16ssp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/cardView"
-                app:layout_constraintTop_toBottomOf="@+id/reader_name_ar" />-->
-    </LinearLayout>
+        <TextView
+                 android:id="@+id/surah_name_en"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="start"
+                 android:layout_marginTop="@dimen/_20ssp"
+                 android:layout_marginBottom="@dimen/_20ssp"
+                 android:text="@string/AlBaqarah"
+                 android:textColor="@color/green"
+                 android:fontFamily="@font/font_b"
+                 android:textSize="@dimen/_16ssp"
+                 app:layout_constraintBottom_toBottomOf="parent"
+                 app:layout_constraintEnd_toStartOf="@+id/cardView"
+                 app:layout_constraintTop_toBottomOf="@+id/reader_name_ar" />
+    </LinearLayout>-->
     <com.keenfin.audioview.AudioView
         android:id="@+id/AV"
         android:layout_width="match_parent"
@@ -56,8 +56,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView">
     </com.keenfin.audioview.AudioView>
-
-    <LinearLayout
+    <!--<LinearLayout
         android:id="@+id/all_surah"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -67,7 +66,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-        <!--    <TextView
+           <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/ShowSurah"
@@ -80,7 +79,10 @@
                 android:layout_height="@dimen/_20ssp"
                 app:tint="@color/green"
                 android:src="@drawable/back_down">
-            </ImageView>-->
-    </LinearLayout>
+            </ImageView>
+    </LinearLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+<!--
+ tools:showIn="@layout/player_fragment"
+    app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"-->

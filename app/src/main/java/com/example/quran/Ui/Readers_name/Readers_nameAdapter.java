@@ -41,10 +41,7 @@ public class Readers_nameAdapter extends RecyclerView.Adapter<Readers_nameAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             holder.Name.setText(Names.get(position).getName()+"");
-
-
-
-        holder.ItemName.setOnClickListener(new View.OnClickListener() {
+            holder.ItemName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 fillSwarArray(Names.get(position).getSuras(),Names.get(position).getServer());
@@ -56,8 +53,6 @@ public class Readers_nameAdapter extends RecyclerView.Adapter<Readers_nameAdapte
                 } catch (Exception e) { e.printStackTrace(); }
                 FragmentManager fragmentManager = readers_nameFragment.getActivity().getSupportFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.Readers_nameFragment, fragment).commit();
-
-
             }
         });
     }
@@ -66,13 +61,11 @@ public class Readers_nameAdapter extends RecyclerView.Adapter<Readers_nameAdapte
 
         List<String>Swar = new ArrayList<>();
         List<String>SwarId = new ArrayList<>();
-
         String str = Swars;
         String[] arrOfStr = str.split(",");
         String SwareUrl="";
         for(int i=0;i<arrOfStr.length;i++){
             SwarId.add(arrOfStr[i].toString());
-
             switch(arrOfStr[i].length()) {
                 case 1:
                     SwareUrl = Server+"/00" + arrOfStr[i].toString() +".mp3";
@@ -84,19 +77,12 @@ public class Readers_nameAdapter extends RecyclerView.Adapter<Readers_nameAdapte
                     SwareUrl = Server+"/" + arrOfStr[i].toString() +".mp3";
                     break;
             }
-
-
-
-
             Swar.add(SwareUrl);
 
         }
-
         Utils.SwarId = SwarId;
         Utils.Swar = Swar;
     }
-
-
     @Override
         public int getItemCount() {
             return Names.size();

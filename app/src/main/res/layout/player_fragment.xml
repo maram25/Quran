@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/Beige"
     android:id="@+id/readerFragment"
+    android:fitsSystemWindows="false"
     tools:context=".Ui.Reader.PlayerFragment">
 
     <include
@@ -15,7 +16,6 @@
     <include
         android:id="@+id/bottom_suraha"
         layout="@layout/surahs_fragments_fragment" />
-
 
 
 

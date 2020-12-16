@@ -31,27 +31,19 @@ public class SurahsFragments extends Fragment {
     Context context;
     RecyclerView SurahName;
     SurahsFragments surahsFragments=this;
-
-
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
       //  if(!(Utils.position.get(Utils.position.size()-1).equals("c"))) Utils.position.add("surahs");
         if(!(Utils.position.get(Utils.position.size()-1).equals("surahs")))
             Utils.position.add("surahs");
 
         mViewModel = new ViewModelProvider(this).get(SurahsFragmentsViewModel.class);
-
         if (container != null) {
             container.removeAllViews();
         }
         context = getContext();
-
         View root=inflater.inflate(R.layout.surahs_fragments_fragment, container, false);
         SurahName=root.findViewById(R.id.surah_recycle);
-
-
-
         ((MainActivity) getActivity()).updateTextView(Utils.ReaderName);
 
         mViewModel.GetSurahName();
@@ -64,8 +56,6 @@ public class SurahsFragments extends Fragment {
                 SurahName.setAdapter(adapter);
             }
         });
-
-
         return root;
     }
 
