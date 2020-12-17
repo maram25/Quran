@@ -1,4 +1,4 @@
-package com.example.quran.Ui.Reader;
+package com.example.quran.Ui.Player;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;

@@ -8,7 +8,7 @@
     android:background="@color/Beige"
     android:id="@+id/readerFragment"
     android:fitsSystemWindows="false"
-    tools:context=".Ui.Reader.PlayerFragment">
+    tools:context=".Ui.Player.PlayerFragment">
 
     <include
         android:id="@+id/include"

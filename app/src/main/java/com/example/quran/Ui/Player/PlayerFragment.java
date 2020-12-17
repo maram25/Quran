@@ -1,4 +1,4 @@
-package com.example.quran.Ui.Reader;
+package com.example.quran.Ui.Player;
 
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -45,7 +44,7 @@ public class PlayerFragment extends Fragment {
     String readername_ar = "مشاري";
     String readername_en = "Mishary Rashid";
     AudioView audioView;
-    ImageView play,rewind,forward,back;
+    ImageView play,rewind,forward,back,loop;
     ////
     RecyclerView SurahName;
     Context context;
@@ -68,8 +67,8 @@ public class PlayerFragment extends Fragment {
         play=root.findViewById(R.id.play);
         rewind=root.findViewById(R.id.rewind);
         forward=root.findViewById(R.id.forward);
+        loop=root.findViewById(R.id.loop);
         SurahName=root.findViewById(R.id.surah_recycle);
-
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSuraha);
       //  back_down=root.findViewById(R.id.back_down);
         back=root.findViewById(R.id.back_up);
@@ -90,6 +89,32 @@ public class PlayerFragment extends Fragment {
         Audios.add("https://server8.mp3quran.net/bna/112.mp3");
         Audios.add("https://server10.mp3quran.net/minsh/112.mp3");
         audioView.setDataSource(Utils.Swar);
+        forward.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                audioView.nextTrack();
+
+            }});
+        rewind.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                audioView.previousTrack();
+            }
+        });
+
+        loop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               /* boolean run = true;
+                while(run)
+                {
+                }
+
+                audioView.setDataSource(Utils.Swar);
+                audioView.start();*/
+
+            }
+        });
 
         ///////////////
         if (Audios.size()>0) {
@@ -141,7 +166,7 @@ public class PlayerFragment extends Fragment {
 ////////////////////////////////////////
         return root;
     }
-    private void setup() {
+         private void setup() {
         bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(View bottomSheet, int newState) {

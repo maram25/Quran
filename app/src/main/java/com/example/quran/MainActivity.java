@@ -2,28 +2,39 @@ package com.example.quran;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.quran.Ui.Reader.PlayerFragment;
+import com.example.quran.Ui.Player.PlayerFragment;
 import com.example.quran.Ui.Readers_name.Readers_nameFragment;
 import com.example.quran.Ui.Surahs.SurahsFragments;
 import com.example.quran.Utils.Utils;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     Menu optionsMenu;
     ImageView edit;
     static TextView nameReader;
+/////////////////////////
+    ImageButton play;
+    TextView title;
+    NotificationManager notificationManager;
+    List<Track> tracks;
+    int position = 0;
+    boolean isPlaying = false;
+    ////////////////////////////////
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.main, Readers_nameFragment.newInstance()).commitNow();
         }
+
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

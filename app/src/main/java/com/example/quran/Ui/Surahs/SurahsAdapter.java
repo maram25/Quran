@@ -13,7 +13,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quran.R;
-import com.example.quran.Ui.Reader.PlayerFragment;
+import com.example.quran.Ui.Player.PlayerFragment;
 import com.example.quran.Utils.Utils;
 
 import org.json.JSONArray;
@@ -35,7 +35,6 @@ public class SurahsAdapter  extends RecyclerView.Adapter<SurahsAdapter.ViewHolde
             this.Surah=list;
             this.surahsFragments=surahsFragments;
         }
-
         @NonNull
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -90,8 +89,6 @@ public class SurahsAdapter  extends RecyclerView.Adapter<SurahsAdapter.ViewHolde
                             SwarName = jArray.getJSONObject(i).getString("name");
                         else
                              SwarName = jArray.getJSONObject(i).getString("name_en");
-
-
                         Utils.SurahName=SwarName;
 
                         return  SwarName;
