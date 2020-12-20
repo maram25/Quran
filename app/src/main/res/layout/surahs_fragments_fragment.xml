@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/Beige"
     android:id="@+id/SurahFragment"
-    app:behavior_peekHeight="70dp"
+    app:behavior_peekHeight="50dp"
     app:behavior_hideable="true"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
     tools:context=".Ui.Surahs.SurahsFragments">

@@ -12,7 +12,6 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -29,7 +28,6 @@ android {
 }
 
 dependencies {
-
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
@@ -41,8 +39,6 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-
-
     //SSP
     implementation 'com.intuit.ssp:ssp-android:1.0.6'
     ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -88,6 +84,9 @@ dependencies {
 
 //////////////// notification
     implementation "androidx.media:media:1.2.1"
+
+    //Audio Library notification
+    implementation 'com.github.mergehez:ArgPlayer:v2.0'
 
 
 }
