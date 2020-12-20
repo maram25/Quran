@@ -8,6 +8,8 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 
+import com.example.quran.MainActivity;
+import com.example.quran.R;
 import com.example.quran.Utils.Utils;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -46,7 +48,6 @@ public class SwitchLang extends AppCompatActivity {
             public void onClick(View v) {
                 SetAppLocale("en");
                 EnLang.setBackgroundColor(Color.parseColor("#06651C"));
-
             }
         });
         Utils.Switch=true;

@@ -109,7 +109,6 @@ public class PlayerFragment extends Fragment {
                 while(run)
                 {
                 }
-
                 audioView.setDataSource(Utils.Swar);
                 audioView.start();*/
 

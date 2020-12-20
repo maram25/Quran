@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="cover" type="id" />
+    <item name="containerActions" type="id" />
+    <item name="previous" type="id" />
+    <item name="playPause" type="id" />
+    <item name="next" type="id" />
+    <item name="containerNames" type="id" />
+    <item name="trackTitle" type="id" />
+    <item name="trackArtist" type="id" />
+</resources>

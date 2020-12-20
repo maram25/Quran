@@ -6,83 +6,83 @@
         android:background="@android:color/transparent"
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<!--        <ImageView-->
-<!--            android:id="@+id/cover"-->
-<!--            android:src="@drawable/main_icon"-->
-<!--            android:padding="8dp"-->
-<!--            android:layout_width="64dp"-->
-<!--            android:layout_height="64dp" />-->
+        <ImageView
+            android:id="@+id/cover"
+            android:src="@drawable/main_icon"
+            android:padding="8dp"
+            android:layout_width="64dp"
+            android:layout_height="64dp" />
 
-<!--        <LinearLayout-->
-<!--            android:id="@+id/containerActions"-->
-<!--            android:layout_alignParentEnd="true"-->
-<!--            android:layout_centerVertical="true"-->
-<!--            android:orientation="horizontal"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_alignParentRight="true">-->
+        <LinearLayout
+            android:id="@+id/containerActions"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true">
 
-<!--            <ImageView-->
-<!--                android:id="@+id/previous"-->
-<!--                android:src="@drawable/following"-->
-<!--                android:layout_width="20dp"-->
-<!--                android:layout_height="20dp"-->
-<!--                android:layout_marginEnd="10dp"-->
-<!--                android:layout_marginRight="8dp" />-->
+            <ImageView
+                android:id="@+id/previous"
+                android:src="@drawable/following"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="8dp" />
 
-<!--            <ImageView-->
-<!--                android:id="@+id/playPause"-->
-<!--                android:src="@drawable/play"-->
-<!--                android:layout_width="20dp"-->
-<!--                android:layout_height="20dp"-->
-<!--                android:layout_marginEnd="10dp"-->
-<!--                android:layout_marginRight="8dp" />-->
+            <ImageView
+                android:id="@+id/playPause"
+                android:src="@drawable/play2"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="8dp" />
 
-<!--            <ImageView-->
-<!--                android:id="@+id/next"-->
-<!--               android:src="@drawable/next"-->
-<!--                android:layout_width="20dp"-->
-<!--                android:layout_height="20dp"-->
-<!--                android:layout_marginEnd="10dp"-->
-<!--                android:layout_marginRight="8dp" />-->
+            <ImageView
+                android:id="@+id/next"
+               android:src="@drawable/next"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="8dp" />
 
-<!--          &lt;!&ndash;  <ImageView-->
-<!--                android:id="@+id/close"-->
-<!--                android:layout_width="20dp"-->
-<!--                android:src="@drawable/close"-->
-<!--                android:layout_height="20dp"-->
-<!--                android:layout_marginEnd="10dp"-->
-<!--                android:layout_marginRight="8dp" />&ndash;&gt;-->
-<!--        </LinearLayout>-->
+          <!--  <ImageView
+                android:id="@+id/close"
+                android:layout_width="20dp"
+                android:src="@drawable/close"
+                android:layout_height="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="8dp" />-->
+        </LinearLayout>
 
-<!--        <LinearLayout-->
-<!--            android:id="@+id/containerNames"-->
-<!--            android:orientation="vertical"-->
-<!--            android:layout_centerVertical="true"-->
-<!--            android:layout_toStartOf="@id/containerActions"-->
-<!--            android:layout_toEndOf="@id/cover"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_toLeftOf="@id/containerActions"-->
-<!--            android:layout_toRightOf="@id/cover">-->
-<!--            <TextView-->
-<!--                android:id="@+id/trackTitle"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                style="@style/track_title"-->
-<!--                android:textColor="@android:color/black"-->
-<!--                tools:text="American Idiot"-->
-<!--                android:layout_marginStart="8dp"-->
-<!--                android:layout_marginEnd="8dp" />-->
+        <LinearLayout
+            android:id="@+id/containerNames"
+            android:orientation="vertical"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/containerActions"
+            android:layout_toEndOf="@id/cover"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/containerActions"
+            android:layout_toRightOf="@id/cover">
+            <TextView
+                android:id="@+id/trackTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/track_title"
+                android:textColor="@android:color/black"
+                tools:text="American Idiot"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/trackArtist"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                style="@style/track_artist"-->
-<!--                android:textColor="@android:color/black"-->
-<!--                tools:text="Green Day"-->
-<!--                android:layout_marginStart="8dp"-->
-<!--                android:layout_marginEnd="8dp" />-->
-<!--        </LinearLayout>-->
+            <TextView
+                android:id="@+id/trackArtist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/track_artist"
+                android:textColor="@android:color/black"
+                tools:text="Green Day"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp" />
+        </LinearLayout>
     </RelativeLayout>
