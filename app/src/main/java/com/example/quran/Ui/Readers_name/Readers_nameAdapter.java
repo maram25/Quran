@@ -10,6 +10,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 import com.example.quran.Models.ReadersNameModel;
 import com.example.quran.R;
 
@@ -30,6 +32,7 @@ public class Readers_nameAdapter extends RecyclerView.Adapter<Readers_nameAdapte
         public  Readers_nameAdapter(Readers_nameFragment readers_nameFragment,Context context, List<ReadersNameModel.Data> list){
             this.Names=list;
              this.readers_nameFragment=readers_nameFragment;
+             this.context = context;
         }
         @NonNull
         @Override
@@ -44,8 +47,9 @@ public class Readers_nameAdapter extends RecyclerView.Adapter<Readers_nameAdapte
             holder.ItemName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fillSwarArray(Names.get(position).getSuras(),Names.get(position).getServer());
+              //  fillSwarArray(Names.get(position).getSuras(),Names.get(position).getServer());
                 Utils.ReaderName = Names.get(position).getName();
+                Utils.IdReader =Names.get(position).getId();
 
                fragmentClass= SurahsFragments.class;
                 try {
@@ -55,10 +59,13 @@ public class Readers_nameAdapter extends RecyclerView.Adapter<Readers_nameAdapte
                 fragmentManager.beginTransaction().replace(R.id.Readers_nameFragment, fragment).commit();
             }
         });
+        Glide.with(context)
+                .asBitmap()
+                .load("http://app.mp3quranplayer.com/user.jpg" +"")
+                .into(holder.ReaderImage);
     }
 
     public void fillSwarArray(String Swars, String Server){
-
         List<String>Swar = new ArrayList<>();
         List<String>SwarId = new ArrayList<>();
         String str = Swars;

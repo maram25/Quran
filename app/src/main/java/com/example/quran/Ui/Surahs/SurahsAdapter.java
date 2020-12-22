@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.quran.Models.ReadersNameModel;
+import com.example.quran.Models.SurahModel;
 import com.example.quran.R;
 import com.example.quran.Ui.Player.PlayerFragment;
 import com.example.quran.Utils.Utils;
@@ -29,10 +31,12 @@ public class SurahsAdapter  extends RecyclerView.Adapter<SurahsAdapter.ViewHolde
         Fragment fragment = null;
         Class fragmentClass;
         List<String> Surah=new ArrayList<>();
-        Context context;
-        public  SurahsAdapter( SurahsFragments surahsFragments,Context context, List<String> list){
+        List<SurahModel.Data> NamesSurah=new ArrayList<>();
+
+    Context context;
+        public  SurahsAdapter( SurahsFragments surahsFragments,Context context, List<SurahModel.Data> list){
+            this.NamesSurah=list;
             this.context = context;
-            this.Surah=list;
             this.surahsFragments=surahsFragments;
         }
         @NonNull
@@ -45,8 +49,8 @@ public class SurahsAdapter  extends RecyclerView.Adapter<SurahsAdapter.ViewHolde
 
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            holder.Surah_name.setText(getSwarName(Utils.SwarId.get(position)));
-            holder.NumberOfSurah.setText(Utils.SwarId.get(position));
+            holder.Surah_name.setText(NamesSurah.get(position).getName());
+            holder.NumberOfSurah.setText(NamesSurah.get(position).getId());
             holder.ItemSurah.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -77,6 +81,7 @@ public class SurahsAdapter  extends RecyclerView.Adapter<SurahsAdapter.ViewHolde
             }
 
         }
+/*
 
         public  String getSwarName(String Swarid){
             String SwarName;
@@ -115,6 +120,7 @@ public class SurahsAdapter  extends RecyclerView.Adapter<SurahsAdapter.ViewHolde
             }
             return json;
         }
+*/
 
 
 

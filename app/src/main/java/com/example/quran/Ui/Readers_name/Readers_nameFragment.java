@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -57,7 +58,7 @@ public class Readers_nameFragment extends Fragment {
            mViewModel.NamesReader.observe(this, new Observer<List<ReadersNameModel.Data>>()  {
                @Override
                public void onChanged(List<ReadersNameModel.Data> readersNameModels) {
-
+                   Log.e("tst",readersNameModels.size()+" nu");
                    final Readers_nameAdapter adapter= new Readers_nameAdapter(readers_nameFragment,context,readersNameModels);
                    ReadersName.setLayoutManager( new GridLayoutManager(getContext(),1));
                    ReadersName.setAdapter(adapter);

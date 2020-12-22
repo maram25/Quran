@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.quran.MainActivity;
+import com.example.quran.Models.SurahModel;
 import com.example.quran.R;
 import com.example.quran.Utils.Utils;
 
@@ -47,15 +48,34 @@ public class SurahsFragments extends Fragment {
         ((MainActivity) getActivity()).updateTextView(Utils.ReaderName);
 
         mViewModel.GetSurahName();
+        mViewModel.NamesSurahr.observe(this, new Observer<List<SurahModel.Data>>() {
+            @Override
+            public void onChanged(List<SurahModel.Data> data) {
+                final SurahsAdapter adapter =new  SurahsAdapter(surahsFragments,context,SurahModel.Data);
+                SurahName.setLayoutManager(new GridLayoutManager(getContext(),1));
+                SurahName.setAdapter(adapter);
+            }
+        });
 
-        mViewModel.NamesSurahr.observe(this, new Observer<List<String>>() {
+       /* mViewModel.NamesSurahr.observe(this, new Observer<List<String>>() {
             @Override
             public void onChanged(List<String> surahModels) {
                 final SurahsAdapter adapter =new  SurahsAdapter(surahsFragments,context,surahModels);
                 SurahName.setLayoutManager(new GridLayoutManager(getContext(),1));
                 SurahName.setAdapter(adapter);
             }
-        });
+        });*/
+
+        /*
+        *    mViewModel.NamesReader.observe(this, new Observer<List<ReadersNameModel.Data>>()  {
+               @Override
+               public void onChanged(List<ReadersNameModel.Data> readersNameModels) {
+                   Log.e("tst",readersNameModels.size()+" nu");
+                   final Readers_nameAdapter adapter= new Readers_nameAdapter(readers_nameFragment,context,readersNameModels);
+                   ReadersName.setLayoutManager( new GridLayoutManager(getContext(),1));
+                   ReadersName.setAdapter(adapter);
+               }
+           });*/
         return root;
     }
 

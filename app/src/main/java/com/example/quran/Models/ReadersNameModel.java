@@ -5,52 +5,88 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class ReadersNameModel {
-    @SerializedName("reciters")
-    public List<Data> data;
-    public class Data{
-        @SerializedName("count")
-        private String Count;
-        @SerializedName("id")
-        private String Id;
-        @SerializedName("letter")
-        private String Letter;
-        @SerializedName("name")
-        private String Name;
-        @SerializedName("rewaya")
-        private String Rewaya;
-        @SerializedName("Server")
-        private String Server;
+//    @SerializedName("reciters")
+//    public List<Data> data;
+//    public class Data{
+//        @SerializedName("count")
+//        private String Count;
+//        @SerializedName("id")
+//        private String Id;
+//        @SerializedName("letter")
+//        private String Letter;
+//        @SerializedName("name")
+//        private String Name;
+//        @SerializedName("rewaya")
+//        private String Rewaya;
+//        @SerializedName("Server")
+//        private String Server;
+//
+//        public String getCount() {
+//            return Count;
+//        }
+//
+//        public String getId() {
+//            return Id;
+//        }
+//
+//        public String getLetter() {
+//            return Letter;
+//        }
+//
+//        public String getName() {
+//            return Name;
+//        }
+//
+//        public String getRewaya() {
+//            return Rewaya;
+//        }
+//
+//        public String getServer() {
+//            return Server;
+//        }
+//
+//        public String getSuras() {
+//            return Suras;
+//        }
+//
+//        @SerializedName("suras")
+//        private String Suras;
+//
+//    }
+    @SerializedName("data")
+   public List<Data> data;
+   public class Data {
+       @SerializedName("id")
+       private int id;
 
-        public String getCount() {
-            return Count;
-        }
+       @SerializedName("name")
+       private String name;
 
-        public String getId() {
-            return Id;
-        }
+       public int getId() {
+           return id;
+       }
 
-        public String getLetter() {
-            return Letter;
-        }
+       public void setId(int id) {
+           this.id = id;
+       }
 
-        public String getName() {
-            return Name;
-        }
+       public String getName() {
+           return name;
+       }
 
-        public String getRewaya() {
-            return Rewaya;
-        }
+       public void setName(String name) {
+           this.name = name;
+       }
 
-        public String getServer() {
-            return Server;
-        }
+       public String getImage() {
+           return image;
+       }
 
-        public String getSuras() {
-            return Suras;
-        }
+       public void setImage(String image) {
+           this.image = image;
+       }
 
-        @SerializedName("suras")
-        private String Suras;
-
-    }
+       @SerializedName("image")
+        private String image;
+   }
 }

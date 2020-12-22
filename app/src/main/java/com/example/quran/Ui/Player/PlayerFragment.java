@@ -56,16 +56,6 @@ public class PlayerFragment extends Fragment {
     ////
     RecyclerView SurahName;
     Context context;
-    /////////////////
-    ArgPlayerFullScreenView musicPlayer;
-    String url1 = "http://www.noiseaddicts.com/samples_1w72b820/2563.mp3";   // 7.5 mb
-    String url2 = "http://mergesoft.org/thesis/argmusicplayer/binkssake.mp3";   // 1.5 mb
-    String url3 = "http://www.noiseaddicts.com/samples_1w72b820/4250.mp3";   // 0.5 mb
-    int res1 = R.raw.nausicaa_requiem;
-    ArgAudio audioUrl,audioRaw,audioAssets,audioFile,audioFile2;
-    ArgAudioList playlist = new ArgAudioList(true);
-
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if(!(Utils.position.get(Utils.position.size()-1).equals("Player")))
@@ -75,7 +65,7 @@ public class PlayerFragment extends Fragment {
             container.removeAllViews();
         }
         View root = inflater.inflate(R.layout.player_fragment, container, false);
-       // audioView = root.findViewById(R.id.AV);
+        audioView = root.findViewById(R.id.AV);
         View bottomSuraha = root.findViewById(R.id.bottom_suraha);
 
         slide_up = AnimationUtils.loadAnimation(getContext(), R.anim.slide);
@@ -98,13 +88,7 @@ public class PlayerFragment extends Fragment {
             ((MainActivity) getActivity()).updateTextView(Utils.ReaderName);
         }
         List<String> Audios = new ArrayList<>();
-        Audios.add("https://server13.mp3quran.net/husr/112.mp3");
-        Audios.add("https://server12.mp3quran.net/maher/112.mp3");
-        Audios.add("https://server10.mp3quran.net/ajm/112.mp3");
-        Audios.add("https://server8.mp3quran.net/bna/112.mp3");
-        Audios.add("https://server8.mp3quran.net/bna/112.mp3");
-        Audios.add("https://server10.mp3quran.net/minsh/112.mp3");
-       // audioView.setDataSource(Utils.Swar);
+        audioView.setDataSource(Utils.Swar);
        /* forward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,11 +108,10 @@ public class PlayerFragment extends Fragment {
                 while(run) {    }
                 audioView.setDataSource(Utils.Swar);
                 audioView.start();*//*
-
             }
         });*/
         ///////////////
-        if (Audios.size()>0) {
+        if (Utils.Swar.size()>0) {
             mViewModel.GetSurahName();
             mViewModel.NamesSurahr.observe(this, new Observer<List<String>>() {
                 @Override
@@ -141,7 +124,6 @@ public class PlayerFragment extends Fragment {
                 }
             });
         }
-        ///////////////////
         setup();
         /*
         all_surah.setOnClickListener(new View.OnClickListener() {
@@ -154,8 +136,6 @@ public class PlayerFragment extends Fragment {
                 all_surah.startAnimation(butt);
             }
         });*/
-///////////
-     /*
         mViewModel.GetSurahName();
         mViewModel.NamesSurahr.observe(this, new Observer<List<String>>() {
             @Override
@@ -166,33 +146,36 @@ public class PlayerFragment extends Fragment {
                 SurahName.setLayoutManager(new GridLayoutManager(getContext(),1));
                 SurahName.setAdapter(adapter);
             }
-        });*/
+        });
 ////////////////////////////////////////
-        musicPlayer = root.findViewById(R.id.argmusicplayer);
+       /* musicPlayer = root.findViewById(R.id.argmusicplayer);
         audioAssets = ArgAudio.createFromAssets("Nîzamettîn Ariç", "Zînê", "zine.mp3");
         audioFile2 = ArgAudio.createFromFilePath("Andrea Bocelli", "Caruso", "/storage/emulated/0/Music/Andrea Bocelli Caruso.mp3");
         audioFile = ArgAudio.createFromFilePath("Awaz Baran", "Zara", "/storage/emulated/0/Music/zaragiyan.m4a");
         audioUrl = ArgAudio.createFromURL("One Piece", "Binks Sake", url1);
         audioRaw = ArgAudio.createFromRaw("Joe Hisaishi", "Requiem", res1);
-        playlist.add(audioRaw).add(audioAssets).add(audioFile)
+        audioRaw2 = ArgAudio.createFromRaw("Joe Hisaishi", "Requiem", res2);
+        playlist.add(audioRaw).add(audioRaw2);
+           *//*      .add(audioFile)
                 .add(audioRaw).add(audioUrl).add(audioAssets).add(audioFile2)
                 .add(audioRaw).add(audioFile2).add(audioAssets).add(audioFile)
                 .add(audioRaw).add(audioFile2).add(audioAssets).add(audioFile)
                 .add(audioRaw).add(audioFile2).add(audioAssets).add(audioFile)
-                .add(audioRaw).add(audioFile2).add(audioAssets).add(audioFile);
+                .add(audioRaw).add(audioFile2).add(audioAssets).add(audioFile);*//*
         musicPlayer.continuePlaylistWhenError();
         musicPlayer.playAudioAfterPercent(50);
         musicPlayer.setPlaylistRepeat(true);
-       musicPlayer.enableNotification(PlayerFragment.class);
-        musicPlayer.enableNotification(MainActivity.class);
-
+        musicPlayer.enableNotification(PlayerFragment.class,R.drawable.main_icon);
+        musicPlayer.disableProgress();
+        musicPlayer.setAllButtonsImageResource(R.drawable.play3,R.drawable.pause3,R.drawable.following,R.drawable.next, R.drawable.loop, R.drawable.notloop);  // Change Image of playback controls
         musicPlayer.setOnErrorListener(new Arg.OnErrorListener() {
             @Override
             public void onError(ErrorType errorType, String description) {
                 Toast.makeText(context,"Error:\nType: "+errorType+"\nDescription: "+description,Toast.LENGTH_LONG).show();
             }
         });
-        musicPlayer.playPlaylist(playlist);
+       // musicPlayer.playPlaylist(playlist);
+        musicPlayer.resume();*/
 ////////////////////////////////////////////
         return root;
     }
@@ -223,9 +206,4 @@ public class PlayerFragment extends Fragment {
         super.onPause();
         //if(musicPlayer!=null) musicPlayer.pause();
     }
-   /* @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        if(musicPlayer!=null) musicPlayer.pause();
-    }*/
 }

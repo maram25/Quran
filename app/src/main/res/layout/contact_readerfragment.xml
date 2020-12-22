@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:background="@color/Beige"
     android:layout_height="match_parent">
-   <!-- <androidx.cardview.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="170dp"
         android:layout_height="170dp"
@@ -16,7 +16,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
         <ImageView
             android:id="@+id/readerImage"
             android:layout_width="match_parent"
@@ -47,7 +46,7 @@
                  app:layout_constraintEnd_toStartOf="@+id/cardView"
                  app:layout_constraintTop_toBottomOf="@+id/reader_name_ar" />
     </LinearLayout>-->
-    <!--<com.keenfin.audioview.AudioView
+    <com.keenfin.audioview.AudioView
         android:id="@+id/AV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,23 +54,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView">
-    </com.keenfin.audioview.AudioView>-->
-
-    /////////////for large view ////
-    <com.arges.sepan.argmusicplayer.PlayerViews.ArgPlayerFullScreenView
-        android:id="@+id/argmusicplayer"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:background="@color/Beige"
-        android:outlineSpotShadowColor="@color/Beige"
-        android:outlineAmbientShadowColor="@color/Beige"
-        android:nextFocusLeft="@drawable/next"
-        android:nextFocusRight="@drawable/following"
-        android:backgroundTint="@color/Beige"
-        android:tooltipText="@string/Meshar_Rashid"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+    </com.keenfin.audioview.AudioView>
 
     <!--<LinearLayout
         android:id="@+id/all_surah"

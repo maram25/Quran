@@ -62,9 +62,7 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.main, Readers_nameFragment.newInstance()).commitNow();
         }
-
         ///////////////////////////
-
         /*Play = findViewById(R.id.play);
         title = findViewById(R.id.title);
         popluateTracks();

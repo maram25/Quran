@@ -12,6 +12,7 @@ public class Utils {
     public static List<String> position=new ArrayList<>();
 
     public static String Lang="en";
+    public static int IdReader=0;
     public static String SurahName=" ";
     public static List<String> Swar;
     public static List<String> SwarId;
