@@ -16,8 +16,11 @@ public class Utils {
     public static String SurahName=" ";
     public static List<String> Swar;
     public static List<String> SwarId;
-    public static String ReaderName = "";
     public   static boolean Switch=false;
+    public static String ReaderName = "";
+    public static String Link_audio = "";
+    public static String TitleOfSurah = "";
+
 
 
 }

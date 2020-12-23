@@ -1,6 +1,7 @@
 package com.example.quran.Ui.Surahs;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +31,7 @@ public class SurahsAdapter  extends RecyclerView.Adapter<SurahsAdapter.ViewHolde
         SurahsFragments surahsFragments;
         Fragment fragment = null;
         Class fragmentClass;
-        List<String> Surah=new ArrayList<>();
+       // List<String> Surah=new ArrayList<>();
         List<SurahModel.Data> NamesSurah=new ArrayList<>();
 
     Context context;
@@ -46,15 +47,20 @@ public class SurahsAdapter  extends RecyclerView.Adapter<SurahsAdapter.ViewHolde
             ViewHolder holder=new ViewHolder (view);
             return holder;
         }
-
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             holder.Surah_name.setText(NamesSurah.get(position).getName());
             holder.NumberOfSurah.setText(NamesSurah.get(position).getId());
+            Utils.Link_audio=NamesSurah.get(position).getLink();
+            Log.e("testUtils.TitleOfSurah",Utils.TitleOfSurah+" ");
+            Log.e("testUtils.TitleOfSurah",Utils.TitleOfSurah+" ");
+
             holder.ItemSurah.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     fragmentClass= PlayerFragment.class;
+                    Utils.TitleOfSurah=NamesSurah.get(position).getName();
+
                     try {
                         fragment = (Fragment) fragmentClass.newInstance();
                     } catch (Exception e) {
@@ -68,7 +74,7 @@ public class SurahsAdapter  extends RecyclerView.Adapter<SurahsAdapter.ViewHolde
 
         @Override
         public int getItemCount() {
-            return Surah.size();
+            return NamesSurah.size();
         }
         public class ViewHolder extends RecyclerView.ViewHolder{
             ConstraintLayout ItemSurah;
@@ -79,7 +85,6 @@ public class SurahsAdapter  extends RecyclerView.Adapter<SurahsAdapter.ViewHolde
                 NumberOfSurah=itemView.findViewById(R.id.numberOfSurah);
                 ItemSurah=itemView.findViewById(R.id.item_saurahs);
             }
-
         }
 /*
 
@@ -121,7 +126,5 @@ public class SurahsAdapter  extends RecyclerView.Adapter<SurahsAdapter.ViewHolde
             return json;
         }
 */
-
-
 
     }

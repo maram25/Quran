@@ -21,14 +21,12 @@ import com.example.quran.Utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Readers_nameAdapter extends RecyclerView.Adapter<Readers_nameAdapter.ViewHolder>{
     Readers_nameFragment readers_nameFragment;
     Fragment fragment = null;
     Class fragmentClass;
          List<ReadersNameModel.Data> Names=new ArrayList<>();
         Context context;
-         //this.context=context;
         public  Readers_nameAdapter(Readers_nameFragment readers_nameFragment,Context context, List<ReadersNameModel.Data> list){
             this.Names=list;
              this.readers_nameFragment=readers_nameFragment;
@@ -65,7 +63,7 @@ public class Readers_nameAdapter extends RecyclerView.Adapter<Readers_nameAdapte
                 .into(holder.ReaderImage);
     }
 
-    public void fillSwarArray(String Swars, String Server){
+/*    public void fillSwarArray(String Swars, String Server){
         List<String>Swar = new ArrayList<>();
         List<String>SwarId = new ArrayList<>();
         String str = Swars;
@@ -89,7 +87,7 @@ public class Readers_nameAdapter extends RecyclerView.Adapter<Readers_nameAdapte
         }
         Utils.SwarId = SwarId;
         Utils.Swar = Swar;
-    }
+    }*/
     @Override
         public int getItemCount() {
             return Names.size();

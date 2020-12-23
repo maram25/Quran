@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.example.quran.MainActivity;
 import com.example.quran.Models.ReadersNameModel;
 import com.example.quran.R;
 import com.example.quran.Utils.Utils;
@@ -29,9 +30,7 @@ import com.example.quran.Utils.Utils;
 import java.util.List;
 
 public class Readers_nameFragment extends Fragment {
-
     private ReadersNameViewModel mViewModel;
-
     public static Readers_nameFragment newInstance() {
         return new Readers_nameFragment();
     }
@@ -52,13 +51,15 @@ public class Readers_nameFragment extends Fragment {
             context = getContext();
             View root=inflater.inflate(R.layout.readers_name_fragment, container, false);
             mViewModel = new ViewModelProvider(this).get(ReadersNameViewModel.class);
-           ReadersName=root.findViewById(R.id.readers_recycle);
+          // ((MainActivity) getActivity()).updateTextView(Utils.ReaderName);
+
+        ReadersName=root.findViewById(R.id.readers_recycle);
            mViewModel.GetReadersName();
            edi=root.findViewById(R.id.edit);
            mViewModel.NamesReader.observe(this, new Observer<List<ReadersNameModel.Data>>()  {
                @Override
                public void onChanged(List<ReadersNameModel.Data> readersNameModels) {
-                   Log.e("tst",readersNameModels.size()+" nu");
+                   Log.e("test",readersNameModels.size()+" iiiiiii");
                    final Readers_nameAdapter adapter= new Readers_nameAdapter(readers_nameFragment,context,readersNameModels);
                    ReadersName.setLayoutManager( new GridLayoutManager(getContext(),1));
                    ReadersName.setAdapter(adapter);

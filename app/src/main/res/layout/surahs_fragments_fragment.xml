@@ -16,6 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_marginTop="@dimen/_5ssp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,13 +29,13 @@
             android:textSize="@dimen/_15ssp">
         </TextView>
         <ImageView
+            android:id="@+id/back_up"
             android:layout_width="@dimen/_20ssp"
             android:layout_height="@dimen/_20ssp"
             app:tint="@color/green"
-            android:id="@+id/back_up"
             android:src="@drawable/back_down">
         </ImageView>
-    </LinearLayout>-->
+    </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/surah_recycle"
         android:layout_width="match_parent"

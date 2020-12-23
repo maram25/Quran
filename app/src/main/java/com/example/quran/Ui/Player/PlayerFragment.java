@@ -20,6 +20,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.arges.sepan.argmusicplayer.Enums.AudioType;
@@ -29,6 +30,7 @@ import com.arges.sepan.argmusicplayer.IndependentClasses.ArgAudio;
 import com.arges.sepan.argmusicplayer.IndependentClasses.ArgAudioList;
 import com.arges.sepan.argmusicplayer.PlayerViews.ArgPlayerFullScreenView;
 import com.example.quran.MainActivity;
+import com.example.quran.Models.SurahModel;
 import com.example.quran.R;
 import com.example.quran.Ui.Surahs.SurahsAdapter;
 import com.example.quran.Ui.Surahs.SurahsFragments;
@@ -36,6 +38,7 @@ import com.example.quran.Utils.Utils;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.keenfin.audioview.AudioView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,13 +51,11 @@ public class PlayerFragment extends Fragment {
     BottomSheetBehavior bottomSheetBehavior;
     LinearLayout all_surah;
     Animation slide_up, butt;
-    String readername_ar = "مشاري";
-    String readername_en = "Mishary Rashid";
     AudioView audioView;
 
     ImageView play,rewind,forward,back,loop;
-    ////
     RecyclerView SurahName;
+    TextView Title;
     Context context;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -62,8 +63,7 @@ public class PlayerFragment extends Fragment {
             Utils.position.add("Player");
         mViewModel = new ViewModelProvider(this).get(PlayerViewModel.class);
         if (container != null) {
-            container.removeAllViews();
-        }
+            container.removeAllViews(); }
         View root = inflater.inflate(R.layout.player_fragment, container, false);
         audioView = root.findViewById(R.id.AV);
         View bottomSuraha = root.findViewById(R.id.bottom_suraha);
@@ -77,18 +77,18 @@ public class PlayerFragment extends Fragment {
         loop=root.findViewById(R.id.loop);
         SurahName=root.findViewById(R.id.surah_recycle);
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSuraha);
-      //  back_down=root.findViewById(R.id.back_down);
         back=root.findViewById(R.id.back_up);
-        if(Utils.Lang.equals("ar")){
-            ((MainActivity) getActivity()).updateTextView(Utils.ReaderName);
-         //   rewind.setImageResource(R.drawable.next);
-        //    forward.setImageResource(R.drawable.following);
-        }
-        if(Utils.Lang.equals("en")){
-            ((MainActivity) getActivity()).updateTextView(Utils.ReaderName);
-        }
+        Title=root.findViewById( R.id.title);
+        ((MainActivity) getActivity()).updateTextView(Utils.ReaderName);
         List<String> Audios = new ArrayList<>();
-        audioView.setDataSource(Utils.Swar);
+        Title.setText(Utils.TitleOfSurah);
+      //  audioView.setDataSource(Utils.Swar);
+        try {
+            audioView.setDataSource(Utils.Link_audio);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
        /* forward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,19 +111,18 @@ public class PlayerFragment extends Fragment {
             }
         });*/
         ///////////////
-        if (Utils.Swar.size()>0) {
+      /* if (Utils.Swar.size()>0) {
             mViewModel.GetSurahName();
-            mViewModel.NamesSurahr.observe(this, new Observer<List<String>>() {
+            mViewModel.NamesSurahr.observe(this, new Observer<List<SurahModel.Data>>() {
                 @Override
-                public void onChanged(List<String> surahModels) {
-                    SurahsFragments surahsFragments = null;
-                    context = getContext();
-                    final SurahsAdapter adapter =new  SurahsAdapter(surahsFragments,context,surahModels);
+                public void onChanged(List<SurahModel.Data> data) {
+                    SurahsFragments surahsFragments ;
+                    final SurahsAdapter adapter =new  SurahsAdapter(surahsFragments,context,data);
                     SurahName.setLayoutManager(new GridLayoutManager(getContext(),1));
                     SurahName.setAdapter(adapter);
                 }
             });
-        }
+        }*/
         setup();
         /*
         all_surah.setOnClickListener(new View.OnClickListener() {
@@ -136,7 +135,7 @@ public class PlayerFragment extends Fragment {
                 all_surah.startAnimation(butt);
             }
         });*/
-        mViewModel.GetSurahName();
+       /* mViewModel.GetSurahName();
         mViewModel.NamesSurahr.observe(this, new Observer<List<String>>() {
             @Override
             public void onChanged(List<String> surahModels) {
@@ -146,7 +145,7 @@ public class PlayerFragment extends Fragment {
                 SurahName.setLayoutManager(new GridLayoutManager(getContext(),1));
                 SurahName.setAdapter(adapter);
             }
-        });
+        });*/
 ////////////////////////////////////////
        /* musicPlayer = root.findViewById(R.id.argmusicplayer);
         audioAssets = ArgAudio.createFromAssets("Nîzamettîn Ariç", "Zînê", "zine.mp3");
@@ -198,7 +197,7 @@ public class PlayerFragment extends Fragment {
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
             transaction.replace(R.id.readerFragment, someFragment);
             transaction.addToBackStack("");
-          transaction.commit();
+             transaction.commit();
     }
 
     @Override

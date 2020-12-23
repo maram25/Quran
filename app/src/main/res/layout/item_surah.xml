@@ -42,19 +42,17 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical">
-
-            <!-- <TextView
+<!--
+             <TextView
                       android:id="@+id/surah_name_ar"
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
                       android:layout_gravity="end"
-                      android:layout_marginTop="@dimen/_20ssp"
                       android:text="البقره"
                       android:textColor="@color/green"
                       app:layout_constraintEnd_toStartOf="@+id/cardView"
                       app:layout_constraintTop_toTopOf="parent" />-->
         </LinearLayout>
-
     </LinearLayout>
     <TextView
         android:id="@+id/surah_name"

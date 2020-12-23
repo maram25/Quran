@@ -24,6 +24,8 @@ import com.example.quran.Utils.Utils;
 import java.util.List;
 
 public class SurahsFragments extends Fragment {
+    private Object SurahModel;
+
     public static SurahsFragments newInstance() {
         return new SurahsFragments();
     }
@@ -34,10 +36,7 @@ public class SurahsFragments extends Fragment {
     SurahsFragments surahsFragments=this;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-      //  if(!(Utils.position.get(Utils.position.size()-1).equals("c"))) Utils.position.add("surahs");
-        if(!(Utils.position.get(Utils.position.size()-1).equals("surahs")))
-            Utils.position.add("surahs");
-
+      ////  if(!(Utils.position.get(Utils.position.size()-1).equals("surahs"))) Utils.position.add("surahs");
         mViewModel = new ViewModelProvider(this).get(SurahsFragmentsViewModel.class);
         if (container != null) {
             container.removeAllViews();
@@ -46,36 +45,15 @@ public class SurahsFragments extends Fragment {
         View root=inflater.inflate(R.layout.surahs_fragments_fragment, container, false);
         SurahName=root.findViewById(R.id.surah_recycle);
         ((MainActivity) getActivity()).updateTextView(Utils.ReaderName);
-
         mViewModel.GetSurahName();
         mViewModel.NamesSurahr.observe(this, new Observer<List<SurahModel.Data>>() {
             @Override
             public void onChanged(List<SurahModel.Data> data) {
-                final SurahsAdapter adapter =new  SurahsAdapter(surahsFragments,context,SurahModel.Data);
+                final SurahsAdapter adapter =new  SurahsAdapter(surahsFragments,context,data);
                 SurahName.setLayoutManager(new GridLayoutManager(getContext(),1));
                 SurahName.setAdapter(adapter);
-            }
+              }
         });
-
-       /* mViewModel.NamesSurahr.observe(this, new Observer<List<String>>() {
-            @Override
-            public void onChanged(List<String> surahModels) {
-                final SurahsAdapter adapter =new  SurahsAdapter(surahsFragments,context,surahModels);
-                SurahName.setLayoutManager(new GridLayoutManager(getContext(),1));
-                SurahName.setAdapter(adapter);
-            }
-        });*/
-
-        /*
-        *    mViewModel.NamesReader.observe(this, new Observer<List<ReadersNameModel.Data>>()  {
-               @Override
-               public void onChanged(List<ReadersNameModel.Data> readersNameModels) {
-                   Log.e("tst",readersNameModels.size()+" nu");
-                   final Readers_nameAdapter adapter= new Readers_nameAdapter(readers_nameFragment,context,readersNameModels);
-                   ReadersName.setLayoutManager( new GridLayoutManager(getContext(),1));
-                   ReadersName.setAdapter(adapter);
-               }
-           });*/
         return root;
     }
 
