@@ -1,10 +1,13 @@
 package com.example.quran.Ui.Surahs;
 
+import android.app.DownloadManager;
 import android.content.Context;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -51,16 +54,17 @@ public class SurahsAdapter  extends RecyclerView.Adapter<SurahsAdapter.ViewHolde
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             holder.Surah_name.setText(NamesSurah.get(position).getName());
             holder.NumberOfSurah.setText(NamesSurah.get(position).getId());
+            Utils.TitleOfSurah=NamesSurah.get(position).getName();
             Utils.Link_audio=NamesSurah.get(position).getLink();
-            Log.e("testUtils.TitleOfSurah",Utils.TitleOfSurah+" ");
-            Log.e("testUtils.TitleOfSurah",Utils.TitleOfSurah+" ");
-
             holder.ItemSurah.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     fragmentClass= PlayerFragment.class;
-                    Utils.TitleOfSurah=NamesSurah.get(position).getName();
-
+                 //   Utils.TitleOfSurah=NamesSurah.get(position).getName();
+                  Utils.TitleOfSurah=NamesSurah.get(position).getName();
+                    Utils.Link_audio=NamesSurah.get(position).getLink();
+                    Log.e("testUtils.TitleOfSurah",Utils.TitleOfSurah+" ");
+                    Log.e("testUtils.TitleOfSurah",Utils.Link_audio+" ");
                     try {
                         fragment = (Fragment) fragmentClass.newInstance();
                     } catch (Exception e) {
@@ -70,8 +74,25 @@ public class SurahsAdapter  extends RecyclerView.Adapter<SurahsAdapter.ViewHolde
                     fragmentManager.beginTransaction().replace(R.id.SurahFragment, fragment).commit();
                 }
             });
-        }
+            holder.Downloud.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DownloadManager mManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
+                    Uri uri= Uri.parse(Utils.Link_audio);
+                     DownloadManager.Request request=new DownloadManager.Request(uri);
+                    request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
 
+                    Long refrencee=mManager.enqueue(request);
+                }
+            });
+            holder.Play.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
+
+        }
         @Override
         public int getItemCount() {
             return NamesSurah.size();
@@ -79,11 +100,15 @@ public class SurahsAdapter  extends RecyclerView.Adapter<SurahsAdapter.ViewHolde
         public class ViewHolder extends RecyclerView.ViewHolder{
             ConstraintLayout ItemSurah;
             TextView Surah_name,Surah_name_ar,NumberOfSurah;
+            ImageView Downloud,Play;
             public ViewHolder(View itemView) {
                 super(itemView);
                 Surah_name=itemView.findViewById(R.id.surah_name);
                 NumberOfSurah=itemView.findViewById(R.id.numberOfSurah);
                 ItemSurah=itemView.findViewById(R.id.item_saurahs);
+                Surah_name_ar=itemView.findViewById(R.id.surah_name_en);
+                Downloud=itemView.findViewById(R.id.downloud);
+                Play=itemView.findViewById(R.id.play);
             }
         }
 /*

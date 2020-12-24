@@ -19,6 +19,7 @@ public class Utils {
     public   static boolean Switch=false;
     public static String ReaderName = "";
     public static String Link_audio = "";
+    public static String IdLink_audio = "";
     public static String TitleOfSurah = "";
 
 

@@ -8,8 +8,8 @@
     android:layout_height="match_parent">
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
         android:layout_margin="@dimen/_20ssp"
         android:paddingTop="@dimen/_20ssp"
         app:cardCornerRadius="@dimen/_10ssp"
@@ -21,8 +21,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/profile" />
-    </androidx.cardview.widget.CardView>-->
-    <!--  <LinearLayout
+    </androidx.cardview.widget.CardView>
+      <LinearLayout
          android:id="@+id/linearLayout2"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
@@ -36,16 +36,13 @@
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:layout_gravity="start"
-                 android:layout_marginTop="@dimen/_20ssp"
-                 android:layout_marginBottom="@dimen/_20ssp"
+                 android:layout_marginTop="@dimen/_10ssp"
                  android:text="@string/AlBaqarah"
                  android:textColor="@color/green"
                  android:fontFamily="@font/font_b"
                  android:textSize="@dimen/_16ssp"
-                 app:layout_constraintBottom_toBottomOf="parent"
-                 app:layout_constraintEnd_toStartOf="@+id/cardView"
-                 app:layout_constraintTop_toBottomOf="@+id/reader_name_ar" />
-    </LinearLayout>-->
+                 android:gravity="center" />
+    </LinearLayout>
     <com.keenfin.audioview.AudioView
         android:id="@+id/AV"
         android:layout_width="match_parent"
@@ -53,7 +50,7 @@
         app:customLayout="@layout/custom_audio_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
     </com.keenfin.audioview.AudioView>
 
     <!--<LinearLayout

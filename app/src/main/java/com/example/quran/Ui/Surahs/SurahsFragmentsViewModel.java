@@ -17,9 +17,7 @@ import retrofit2.Response;
 public class SurahsFragmentsViewModel extends ViewModel {
     MutableLiveData<List<SurahModel.Data>> NamesSurahr=new MutableLiveData<>();
     MutableLiveData<Boolean> NoInternet=new MutableLiveData<>();
-
     APIInterface apiInterface;
-
     public void GetSurahName() {
         apiInterface  = APIClient.getClient().create(APIInterface.class);
         Call<SurahModel> call=apiInterface.get_Surah(Utils.IdReader,Utils.Lang);
@@ -27,7 +25,6 @@ public class SurahsFragmentsViewModel extends ViewModel {
             @Override
             public void onResponse(Call<SurahModel> call, Response<SurahModel> response) {
                 NamesSurahr.setValue(response.body().data);
-
             }
             @Override
             public void onFailure(Call<SurahModel> call, Throwable t) {
