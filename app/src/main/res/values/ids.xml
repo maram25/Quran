@@ -8,4 +8,5 @@
     <item name="containerNames" type="id" />
     <item name="trackTitle" type="id" />
     <item name="trackArtist" type="id" />
+    <item name="AV" type="id" />
 </resources>

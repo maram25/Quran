@@ -1,10 +1,11 @@
-package com.example.quran.Ui.Player;
+ package com.example.quran.Ui.Player;
 
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Context;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
@@ -82,28 +83,41 @@ public class PlayerFragment extends Fragment {
         back=root.findViewById(R.id.back_up);
         Title=root.findViewById( R.id.title);
         Title2=root.findViewById( R.id.surah_name_en);
-
         ((MainActivity) getActivity()).updateTextView(Utils.ReaderName);
         List<String> Audios = new ArrayList<>();
         //Title.setText(Utils.TitleOfSurah);
         Title2.setText(Utils.TitleOfSurah);
         Log.e("testUtils.Titl2",Title2+" ");
-        //  audioView.setDataSource(Utils.Swar);
         try {
             audioView.setDataSource(Utils.Link_audio);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+/*        try {
+            mediaPlayer.setDataSource(String.valueOf(R.raw.a));
+            mediaPlayer.prepare();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+          play.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View v) {
+
+                  Toast.makeText(context, "Playing Audio", Toast.LENGTH_SHORT).show();
+
+                  mediaPlayer.start();
+              }
+          });*/
         forward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                audioView.nextTrack();
+                //audioView.nextTrack();
             }});
         rewind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                audioView.previousTrack();
+             //   audioView.previousTrack();
             }
         });
         loop.setOnClickListener(new View.OnClickListener() {
@@ -111,15 +125,15 @@ public class PlayerFragment extends Fragment {
             public void onClick(View v) {
                 loop.setImageResource(R.drawable.notloop);
                 if (repeatFlag) {
-                    //Toast.makeText(this, "Replaying Removed..", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Replaying Removed..", Toast.LENGTH_SHORT).show();
                     mediaPlayer.setLooping(false);
                     repeatFlag = false;
                 } else {
-                 //   Toast.makeText(this,"Replaying Added..", Toast.LENGTH_SHORT).show();
+                   // loop.setImageResource(R.drawable.loop);
+                      Toast.makeText(getContext(),"Replaying Added..", Toast.LENGTH_SHORT).show();
                     mediaPlayer.setLooping(true);
                     repeatFlag = true;
                 }
-
             }
         });
         ///////////////
@@ -194,7 +208,7 @@ public class PlayerFragment extends Fragment {
 ////////////////////////////////////////////
         return root;
     }
-         private void setup() {
+      private void setup() {
         bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(View bottomSheet, int newState) {
@@ -208,9 +222,9 @@ public class PlayerFragment extends Fragment {
             }
             @Override
             public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-            }});
-            }
-            public void replaceFragment(Fragment someFragment) {
+            }}); }
+
+      public void replaceFragment(Fragment someFragment) {
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
             transaction.replace(R.id.readerFragment, someFragment);
             transaction.addToBackStack("");
