@@ -1,5 +1,6 @@
 package com.example.quran.Ui.Surahs;
 
+import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.net.Uri;
@@ -14,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quran.Models.ReadersNameModel;
@@ -31,17 +33,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SurahsAdapter  extends RecyclerView.Adapter<SurahsAdapter.ViewHolder>{
-        SurahsFragments surahsFragments;
         Fragment fragment = null;
         Class fragmentClass;
+        FragmentManager fragmentManager;
        // List<String> Surah=new ArrayList<>();
         List<SurahModel.Data> NamesSurah=new ArrayList<>();
 
     Context context;
-        public  SurahsAdapter( SurahsFragments surahsFragments,Context context, List<SurahModel.Data> list){
+        public  SurahsAdapter(FragmentManager fragmentManager, Context context, List<SurahModel.Data> list){
             this.NamesSurah=list;
             this.context = context;
-            this.surahsFragments=surahsFragments;
+            this.fragmentManager = fragmentManager;
         }
         @NonNull
         @Override
@@ -54,31 +56,27 @@ public class SurahsAdapter  extends RecyclerView.Adapter<SurahsAdapter.ViewHolde
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             holder.Surah_name.setText(NamesSurah.get(position).getName());
             holder.NumberOfSurah.setText(NamesSurah.get(position).getId());
-            Utils.TitleOfSurah=NamesSurah.get(position).getName();
-            Utils.Link_audio=NamesSurah.get(position).getLink();
+//            Utils.TitleOfSurah=NamesSurah.get(position).getName();
+//            Utils.Link_audio=NamesSurah.get(position).getLink();
             holder.ItemSurah.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     fragmentClass= PlayerFragment.class;
                  //   Utils.TitleOfSurah=NamesSurah.get(position).getName();
-                  Utils.TitleOfSurah=NamesSurah.get(position).getName();
-                    Utils.Link_audio=NamesSurah.get(position).getLink();
-                    Log.e("testUtils.TitleOfSurah",Utils.TitleOfSurah+" ");
+//                  Utils.Link_audioTitles=NamesSurah.get(position).getName();
+                    Utils.AudioIndex=position;
+                    Log.e("testUtils.TitleOfSurah",Utils.Link_audioTitles.get(position)+" ");
                     Log.e("testUtils.TitleOfSurah",Utils.Link_audio+" ");
-                    try {
-                        fragment = (Fragment) fragmentClass.newInstance();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }// Insert the fragment by replacing any existing fragment
-                    FragmentManager fragmentManager = surahsFragments.getActivity().getSupportFragmentManager();
-                    fragmentManager.beginTransaction().replace(R.id.SurahFragment, fragment).commit();
+
+                    Blackout(new PlayerFragment());
+
                 }
             });
             holder.Downloud.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     DownloadManager mManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
-                    Uri uri= Uri.parse(Utils.Link_audio);
+                    Uri uri= Uri.parse(Utils.Link_audio.get(position));
                      DownloadManager.Request request=new DownloadManager.Request(uri);
                     request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
 
@@ -111,6 +109,14 @@ public class SurahsAdapter  extends RecyclerView.Adapter<SurahsAdapter.ViewHolde
                 Play=itemView.findViewById(R.id.play);
             }
         }
+
+    private void Blackout(Fragment fragment) {
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        ft.replace(R.id.main, fragment);
+        ft.addToBackStack(null);
+        ft.commit();
+    }
 /*
 
         public  String getSwarName(String Swarid){

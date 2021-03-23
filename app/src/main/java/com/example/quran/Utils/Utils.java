@@ -18,9 +18,10 @@ public class Utils {
     public static List<String> SwarId;
     public   static boolean Switch=false;
     public static String ReaderName = "";
-    public static String Link_audio = "";
+    public static List<String> Link_audio = new ArrayList<>();
+    public static List<String> Link_audioTitles = new ArrayList<>();
+    public static int AudioIndex = 0;
     public static String IdLink_audio = "";
-    public static String TitleOfSurah = "";
 
 
 

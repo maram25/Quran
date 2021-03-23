@@ -21,7 +21,10 @@ import com.example.quran.Models.SurahModel;
 import com.example.quran.R;
 import com.example.quran.Utils.Utils;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.internal.Util;
 
 public class SurahsFragments extends Fragment {
     private Object SurahModel;
@@ -46,10 +49,18 @@ public class SurahsFragments extends Fragment {
         SurahName=root.findViewById(R.id.surah_recycle);
         ((MainActivity) getActivity()).updateTextView(Utils.ReaderName);
         mViewModel.GetSurahName();
-        mViewModel.NamesSurahr.observe(this, new Observer<List<SurahModel.Data>>() {
+
+        mViewModel.NamesSurahr.observe(getViewLifecycleOwner(), new Observer<List<SurahModel.Data>>() {
             @Override
             public void onChanged(List<SurahModel.Data> data) {
-                final SurahsAdapter adapter =new  SurahsAdapter(surahsFragments,context,data);
+                Utils.Link_audioTitles = new ArrayList<>();
+                Utils.Link_audio = new ArrayList<>();
+                for ( int i = 0 ; i< data.size() ; i++){
+                    Utils.Link_audio.add(data.get(i).getLink());
+                    Utils.Link_audioTitles.add(data.get(i).getName());
+
+                }
+                final SurahsAdapter adapter =new  SurahsAdapter(getActivity().getSupportFragmentManager(),context,data);
                 SurahName.setLayoutManager(new GridLayoutManager(getContext(),1));
                 SurahName.setAdapter(adapter);
               }

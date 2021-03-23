@@ -61,6 +61,7 @@ public class PlayerFragment extends Fragment {
     RecyclerView SurahName;
     TextView Title,Title2;
     Context context;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if(!(Utils.position.get(Utils.position.size()-1).equals("Player")))
@@ -86,13 +87,27 @@ public class PlayerFragment extends Fragment {
         ((MainActivity) getActivity()).updateTextView(Utils.ReaderName);
         List<String> Audios = new ArrayList<>();
         //Title.setText(Utils.TitleOfSurah);
-        Title2.setText(Utils.TitleOfSurah);
+        Title2.setText(Utils.Link_audioTitles.get(Utils.AudioIndex));
+         List<String> Audio = new ArrayList<>();
+         List<String> AudioTitle = new ArrayList<>();
         Log.e("testUtils.Titl2",Title2+" ");
-        try {
-            audioView.setDataSource(Utils.Link_audio);
-        } catch (IOException e) {
-            e.printStackTrace();
+        for ( int i = Utils.AudioIndex ; i < Utils.Link_audio.size() ; i++){
+
+            Audio.add(Utils.Link_audio.get(i));
+            AudioTitle.add(Utils.Link_audioTitles.get(i));
+            }
+        for (int i = 0 ; i < Utils.AudioIndex ; i++ ){
+            Audio.add(Utils.Link_audio.get(i));
+            AudioTitle.add(Utils.Link_audioTitles.get(i));
+
         }
+
+        Utils.Link_audio = Audio;
+        Utils.Link_audioTitles = AudioTitle;
+        audioView.setDataSource(Utils.Link_audio);
+
+//        audioView.se
+//        audioView.goTo
 
 /*        try {
             mediaPlayer.setDataSource(String.valueOf(R.raw.a));
@@ -112,26 +127,33 @@ public class PlayerFragment extends Fragment {
         forward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //audioView.nextTrack();
+                audioView.nextTrack();
             }});
         rewind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             //   audioView.previousTrack();
+                audioView.previousTrack();
             }
         });
         loop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loop.setImageResource(R.drawable.notloop);
                 if (repeatFlag) {
                     Toast.makeText(getContext(), "Replaying Removed..", Toast.LENGTH_SHORT).show();
-                    mediaPlayer.setLooping(false);
+//                    if (mediaPlayer != null)
+//                    mediaPlayer.setLooping(false);
+                     loop.setImageResource(R.drawable.loop);
+
+                    audioView.setLoop(true);
                     repeatFlag = false;
                 } else {
-                   // loop.setImageResource(R.drawable.loop);
+                    loop.setImageResource(R.drawable.notloop);
+
                       Toast.makeText(getContext(),"Replaying Added..", Toast.LENGTH_SHORT).show();
-                    mediaPlayer.setLooping(true);
+//                      if (mediaPlayer != null)
+//                    mediaPlayer.setLooping(true);
+                    audioView.setLoop(false);
+
                     repeatFlag = true;
                 }
             }
@@ -166,12 +188,11 @@ public class PlayerFragment extends Fragment {
              rewind.setImageResource(R.drawable.next);
          }
         mViewModel.GetSurahName();
-        mViewModel.NamesSurahr.observe(this, new Observer<List<SurahModel.Data>>() {
+        mViewModel.NamesSurahr.observe(getViewLifecycleOwner(), new Observer<List<SurahModel.Data>>() {
             @Override
             public void onChanged(List<SurahModel.Data> data) {
-                SurahsFragments surahsFragments = null;
                 context = getContext();
-                final SurahsAdapter adapter =new  SurahsAdapter(surahsFragments,context,data);
+                final SurahsAdapter adapter =new  SurahsAdapter(getActivity().getSupportFragmentManager(),context,data);
                 SurahName.setLayoutManager(new GridLayoutManager(getContext(),1));
                 SurahName.setAdapter(adapter);
             }

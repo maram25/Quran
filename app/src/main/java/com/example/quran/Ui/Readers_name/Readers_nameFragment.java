@@ -43,7 +43,8 @@ public class Readers_nameFragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//       if(!(Utils.position.get(Utils.position.size()-1).equals("Readers")))
+
+//        if(!(Utils.position.get(Utils.position.size()-1).equals("Readers")))
             Utils.position.add("Readers");
         if (container != null) {
             container.removeAllViews();
@@ -56,7 +57,7 @@ public class Readers_nameFragment extends Fragment {
         ReadersName=root.findViewById(R.id.readers_recycle);
            mViewModel.GetReadersName();
            edi=root.findViewById(R.id.edit);
-           mViewModel.NamesReader.observe(this, new Observer<List<ReadersNameModel.Data>>()  {
+           mViewModel.NamesReader.observe(getViewLifecycleOwner(), new Observer<List<ReadersNameModel.Data>>()  {
                @Override
                public void onChanged(List<ReadersNameModel.Data> readersNameModels) {
                    Log.e("test",readersNameModels.size()+" iiiiiii");
