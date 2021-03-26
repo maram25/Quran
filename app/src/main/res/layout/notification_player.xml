@@ -1,88 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/PlayerLayout"
         xmlns:tools="http://schemas.android.com/tools"
         android:background="@android:color/transparent"
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
-        <ImageView
-            android:id="@+id/cover"
-            android:src="@drawable/main_icon"
-            android:padding="8dp"
-            android:layout_width="64dp"
-            android:layout_height="64dp" />
 
-        <LinearLayout
-            android:id="@+id/containerActions"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true">
+    <TextView
+        android:id="@+id/time"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_20ssp"
+        android:layout_marginLeft="@dimen/_20ssp"
+        android:fontFamily="@font/font_r"
+        android:layout_marginBottom="@dimen/_20ssp"
+        android:textColor="@color/green"
+        android:textSize="@dimen/_8ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/previous"
-                android:src="@drawable/following"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="8dp" />
-
-            <ImageView
-                android:id="@+id/playPause"
-                android:src="@drawable/play2"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="8dp" />
-
-            <ImageView
-                android:id="@+id/next"
-               android:src="@drawable/next"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="8dp" />
-
-          <!--  <ImageView
-                android:id="@+id/close"
-                android:layout_width="20dp"
-                android:src="@drawable/close"
-                android:layout_height="20dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="8dp" />-->
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/containerNames"
-            android:orientation="vertical"
-            android:layout_centerVertical="true"
-            android:layout_toStartOf="@id/containerActions"
-            android:layout_toEndOf="@id/cover"
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/total_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_20ssp"
+        android:layout_marginRight="@dimen/_20ssp"
+        android:fontFamily="@font/font_r"
+        android:textColor="@color/green"
+        android:textSize="@dimen/_8ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginStart="@dimen/_10ssp"
+        android:layout_marginEnd="@dimen/_10ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="horizontal">
+        <ProgressBar
+            android:id="@+id/indeterminate"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/containerActions"
-            android:layout_toRightOf="@id/cover">
-            <TextView
-                android:id="@+id/trackTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/track_title"
-                android:textColor="@android:color/black"
-                tools:text="American Idiot"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp" />
+            android:indeterminate="true">
 
-            <TextView
-                android:id="@+id/trackArtist"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/track_artist"
-                android:textColor="@android:color/black"
-                tools:text="Green Day"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp" />
-        </LinearLayout>
-    </RelativeLayout>
+        </ProgressBar>
+        <SeekBar
+            android:id="@+id/progress"
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:outlineAmbientShadowColor="@color/green"
+            />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/cover"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:padding="8dp"
+        android:src="@drawable/main_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+
+    <LinearLayout
+        android:id="@+id/containerActions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/cover"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cover">
+
+        <ImageView
+            android:id="@+id/rewind"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/following" />
+
+        <ImageButton
+            android:id="@+id/play"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/play2" />
+
+        <ImageView
+            android:id="@+id/forward"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/next" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/containerNames"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@id/containerActions"
+        android:layout_toLeftOf="@id/containerActions"
+        android:layout_toEndOf="@id/cover"
+        android:layout_toRightOf="@id/cover"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/cover"
+        app:layout_constraintStart_toEndOf="@+id/cover"
+        app:layout_constraintTop_toTopOf="@+id/cover">
+
+        <TextView
+            android:id="@+id/trackTitle"
+            style="@style/track_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="@android:color/black"
+            tools:text="American Idiot" />
+
+        <TextView
+            android:id="@+id/trackArtist"
+            style="@style/track_artist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="@android:color/black"
+            tools:text="Green Day" />
+    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>

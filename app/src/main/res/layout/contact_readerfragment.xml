@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:background="@color/Beige"
     android:layout_height="match_parent">
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="175dp"
@@ -54,30 +55,5 @@
     </com.keenfin.audioview.AudioView>
 
 
-    <!--<LinearLayout
-        android:id="@+id/all_surah"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginBottom="@dimen/_10ssp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-           <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/ShowSurah"
-                android:fontFamily="@font/font_b"
-                android:textColor="@color/green"
-                android:textSize="@dimen/_15ssp">
-            </TextView>
-            <ImageView
-                android:layout_width="@dimen/_20ssp"
-                android:layout_height="@dimen/_20ssp"
-                app:tint="@color/green"
-                android:src="@drawable/back_down">
-            </ImageView>
-    </LinearLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

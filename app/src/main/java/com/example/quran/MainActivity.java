@@ -2,6 +2,7 @@ package com.example.quran;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -15,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.quran.Notification.CreatNotification;
@@ -35,6 +37,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     Menu optionsMenu;
     ImageView edit;
+    ConstraintLayout PlayerLayout;
     static TextView nameReader;
 /////////////////////////
     ImageButton play;
@@ -51,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         edit=findViewById(R.id.edit);
         nameReader=findViewById(R.id.name_reader);
+        PlayerLayout = findViewById(R.id.PlayerLayout);
         nameReader.setText("Quran");
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -159,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
         unregisterReceiver(broadcastReceiver);
     }*/
         ////////////////////////////
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
